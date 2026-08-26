@@ -1,0 +1,1782 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kampaoh Trueque Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #F8F9FA;
+  --surface: #FFFFFF;
+  --border: #E5E7EB;
+  --text: #111827;
+  --text2: #6B7280;
+  --accent: #2563EB;
+  --accent-light: #EFF6FF;
+  --green: #059669;
+  --green-light: #ECFDF5;
+  --red: #DC2626;
+  --red-light: #FEF2F2;
+  --yellow: #D97706;
+  --yellow-light: #FFFBEB;
+  --purple: #7C3AED;
+  --purple-light: #F5F3FF;
+  --gray: #6B7280;
+  --gray-light: #F3F4F6;
+  --radius: 8px;
+  --shadow: 0 1px 3px rgba(0,0,0,.1), 0 1px 2px rgba(0,0,0,.06);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0,0,0,.1), 0 10px 10px -5px rgba(0,0,0,.04);
+}
+
+body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--text); font-size: 14px; min-height: 100vh; }
+
+/* ─── HEADER ─── */
+.header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 56px; position: sticky; top: 0; z-index: 100; }
+.header-brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 15px; color: var(--text); }
+.header-brand span { opacity: .4; font-weight: 400; font-size: 13px; margin-left: 4px; }
+.header-actions { display: flex; align-items: center; gap: 8px; }
+
+/* ─── NAV 3 NIVELES ─── */
+.nav-l1 { background: #1E293B; display: flex; align-items: center; gap: 1px; padding: 0 16px; height: 46px; overflow-x: auto; position: sticky; top: 56px; z-index: 99; flex-shrink: 0; }
+.nav-l1-btn { padding: 7px 14px; border: none; background: transparent; border-radius: 6px; font-size: 13px; font-weight: 500; cursor: pointer; font-family: inherit; color: rgba(255,255,255,.55); transition: all .15s; white-space: nowrap; display: flex; align-items: center; gap: 6px; }
+.nav-l1-btn:hover { background: rgba(255,255,255,.1); color: #fff; }
+.nav-l1-btn.active { background: rgba(255,255,255,.16); color: #fff; font-weight: 600; }
+.nav-l1-btn .nb { font-size: 11px; font-weight: 700; background: rgba(255,255,255,.18); color: rgba(255,255,255,.9); padding: 1px 7px; border-radius: 99px; min-width: 22px; text-align: center; }
+.nav-l1-sep { width: 1px; height: 20px; background: rgba(255,255,255,.15); margin: 0 6px; flex-shrink: 0; }
+
+.nav-l2 { background: #EFF6FF; border-bottom: 2px solid #BFDBFE; display: flex; align-items: center; gap: 2px; padding: 0 20px; height: 40px; overflow-x: auto; }
+.nav-l2-btn { padding: 6px 12px; border: none; background: transparent; border-radius: 6px; font-size: 13px; font-weight: 500; cursor: pointer; font-family: inherit; color: #3B82F6; transition: all .15s; white-space: nowrap; display: flex; align-items: center; gap: 5px; }
+.nav-l2-btn:hover { background: rgba(255,255,255,.7); color: #1D4ED8; }
+.nav-l2-btn.active { background: #fff; color: #111; font-weight: 600; box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+.nav-l2-btn .nb { font-size: 11px; font-weight: 700; background: #DBEAFE; color: #1D4ED8; padding: 1px 6px; border-radius: 99px; min-width: 18px; text-align: center; }
+.nav-l2-btn.active .nb { background: #EEF2FF; color: #4F46E5; }
+
+.nav-l3 { background: #F0FDF4; border-bottom: 2px solid #BBF7D0; display: flex; align-items: center; gap: 2px; padding: 0 36px; height: 36px; overflow-x: auto; }
+.nav-l3-btn { padding: 5px 12px; border: none; background: transparent; border-radius: 6px; font-size: 13px; font-weight: 500; cursor: pointer; font-family: inherit; color: #16A34A; transition: all .15s; white-space: nowrap; }
+.nav-l3-btn:hover { background: rgba(255,255,255,.8); color: #15803D; }
+.nav-l3-btn.active { background: #fff; color: #15803D; font-weight: 700; box-shadow: 0 1px 3px rgba(0,0,0,.1); }
+
+/* ─── HELP BUTTON ─── */
+.help-btn { display: inline-flex; align-items: center; justify-content: center; width: 15px; height: 15px; border-radius: 50%; font-size: 9px; font-weight: 700; cursor: pointer; margin-left: 5px; border: none; vertical-align: middle; flex-shrink: 0; line-height: 1; }
+.nav-l1-btn .help-btn { background: rgba(255,255,255,.18); color: rgba(255,255,255,.65); }
+.nav-l1-btn .help-btn:hover { background: rgba(255,255,255,.38); color: #fff; }
+.nav-l2-btn .help-btn { background: #DBEAFE; color: #3B82F6; }
+.nav-l2-btn .help-btn:hover { background: #BFDBFE; color: #1D4ED8; }
+.nav-l3-btn .help-btn { background: #D1FAE5; color: #16A34A; }
+.nav-l3-btn .help-btn:hover { background: #A7F3D0; color: #15803D; }
+
+/* ─── HELP POPUP ─── */
+#help-popup { position: fixed; z-index: 9999; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; box-shadow: 0 4px 24px rgba(0,0,0,.18); padding: 16px 18px; max-width: 310px; font-size: 13px; }
+#help-popup strong { font-size: 13px; }
+#help-popup p { margin: 8px 0 0; color: var(--text2); line-height: 1.6; }
+
+/* ─── VALORACIÓN SUBNAV ─── */
+#valoracion-subnav { background: #FFFBEB; border-bottom: 1px solid #FDE68A; padding: 10px 24px; gap: 8px; align-items: center; flex-shrink: 0; }
+.valtab-btn { padding: 7px 16px; border: 2px solid #E5E7EB; background: #fff; border-radius: 8px; font-size: 13px; font-weight: 500; cursor: pointer; font-family: inherit; color: var(--text); transition: all .15s; }
+.valtab-btn:hover { border-color: #F59E0B; color: #D97706; }
+.valtab-btn.active { border-color: #F59E0B; background: #FFFBEB; color: #D97706; font-weight: 600; }
+
+/* ─── TOTAL VALORACIÓN ─── */
+.val-stats-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 900px; margin: 0 auto; padding: 24px; }
+@media(max-width:600px) { .val-stats-wrap { grid-template-columns: 1fr; } }
+.val-stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+.val-stat-card h4 { font-size: 11px; color: var(--text2); text-transform: uppercase; letter-spacing: .06em; margin: 0 0 12px; font-weight: 600; }
+.val-stat-row { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
+.val-stat-row:last-child { border-bottom: none; }
+.val-stat-score { font-weight: 700; color: #D97706; white-space: nowrap; }
+.val-total-hero { background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%); border-color: #FDE68A; grid-column: 1 / -1; }
+.val-total-hero .hero-n { font-size: 48px; font-weight: 800; color: #D97706; line-height: 1; }
+.val-total-hero .hero-avg { font-size: 20px; color: #92400E; margin-top: 6px; }
+
+/* ─── STATS ─── */
+.stats-bar { background: var(--surface); border-bottom: 1px solid var(--border); padding: 12px 24px; display: flex; gap: 8px; overflow-x: auto; }
+.stat-pill { display: flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 999px; border: 1.5px solid var(--border); background: var(--surface); font-size: 13px; font-weight: 500; white-space: nowrap; cursor: pointer; transition: all .15s; user-select: none; }
+.stat-pill:hover { border-color: var(--accent); color: var(--accent); }
+.stat-pill.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+.stat-pill .count { font-weight: 700; font-size: 15px; }
+.stat-pill.clr-blue   { border-color: var(--accent);  color: var(--accent);  } .stat-pill.clr-blue.active   { background: var(--accent);  color:#fff; }
+.stat-pill.clr-yellow { border-color: var(--yellow); color: var(--yellow); } .stat-pill.clr-yellow.active { background: var(--yellow); color:#fff; }
+.stat-pill.clr-green  { border-color: var(--green);  color: var(--green);  } .stat-pill.clr-green.active  { background: var(--green);  color:#fff; }
+.stat-pill.clr-red    { border-color: var(--red);    color: var(--red);    } .stat-pill.clr-red.active    { background: var(--red);    color:#fff; }
+.stat-pill.clr-purple { border-color: var(--purple); color: var(--purple); } .stat-pill.clr-purple.active { background: var(--purple); color:#fff; }
+
+/* ─── CONTROLS ─── */
+.controls { padding: 14px 24px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.search-wrap { position: relative; flex: 1; min-width: 180px; max-width: 280px; }
+.search-wrap input { width: 100%; padding: 7px 10px 7px 34px; border: 1.5px solid var(--border); border-radius: var(--radius); font-size: 13px; outline: none; background: var(--surface); color: var(--text); }
+.search-wrap input:focus { border-color: var(--accent); }
+.search-icon { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: var(--text2); pointer-events: none; }
+select.filter-sel { padding: 7px 28px 7px 10px; border: 1.5px solid var(--border); border-radius: var(--radius); font-size: 13px; outline: none; background: var(--surface); color: var(--text); appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236B7280' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 8px center; cursor: pointer; }
+select.filter-sel:focus { border-color: var(--accent); }
+.row-count { margin-left: auto; font-size: 12px; color: var(--text2); }
+
+/* ─── BUTTONS ─── */
+.btn { display: inline-flex; align-items: center; gap: 5px; padding: 6px 12px; border-radius: var(--radius); border: none; font-size: 13px; font-weight: 500; cursor: pointer; transition: all .15s; white-space: nowrap; font-family: inherit; }
+.btn:disabled { opacity: .5; cursor: not-allowed; }
+.btn-primary { background: var(--accent);  color: #fff; } .btn-primary:hover:not(:disabled) { background: #1d4ed8; }
+.btn-success { background: var(--green);   color: #fff; } .btn-success:hover:not(:disabled) { background: #047857; }
+.btn-danger  { background: var(--red);     color: #fff; } .btn-danger:hover:not(:disabled)  { background: #b91c1c; }
+.btn-warning { background: var(--yellow);  color: #fff; } .btn-warning:hover:not(:disabled) { background: #b45309; }
+.btn-purple  { background: var(--purple);  color: #fff; } .btn-purple:hover:not(:disabled)  { background: #6d28d9; }
+.btn-ghost   { background: transparent; color: var(--text2); border: 1.5px solid var(--border); } .btn-ghost:hover:not(:disabled) { border-color: var(--text2); color: var(--text); }
+.btn-sm  { padding: 5px 12px; font-size: 13px; }
+.btn-xs  { padding: 3px 9px;  font-size: 12px; border-radius: 5px; }
+
+/* ─── TABLE ─── */
+.table-wrap { padding: 0 24px 16px; overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+thead th { padding: 10px 12px; text-align: left; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; color: var(--text2); background: var(--gray-light); border-bottom: 1px solid var(--border); white-space: nowrap; cursor: pointer; user-select: none; }
+thead th:hover { color: var(--text); }
+thead th.sorted { color: var(--accent); }
+.sort-arrow { opacity: .35; margin-left: 3px; }
+.sorted .sort-arrow { opacity: 1; }
+tbody tr { border-bottom: 1px solid var(--border); transition: background .1s; }
+tbody tr:last-child { border-bottom: none; }
+tbody tr:hover { background: #FAFBFF; }
+tbody tr.row-rechaza { background: var(--red-light) !important; }
+tbody tr.row-rechaza:hover { background: #fde8e8 !important; }
+tbody tr.row-conflicto { background: var(--yellow-light) !important; }
+tbody tr.row-conflicto:hover { background: #fff3d0 !important; }
+tbody td { padding: 10px 12px; vertical-align: middle; }
+.td-id { font-family: monospace; font-size: 12px; color: var(--text2); font-weight: 600; white-space: nowrap; }
+.td-name { font-weight: 600; font-size: 13px; }
+.td-email { font-size: 11px; color: var(--text2); margin-top: 1px; }
+.td-act { max-width: 120px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--text2); }
+.td-actions { display: flex; align-items: center; gap: 5px; flex-wrap: nowrap; }
+
+/* ─── BADGES ─── */
+.badge { display: inline-flex; align-items: center; padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 600; white-space: nowrap; }
+.badge-blue   { background: var(--accent-light); color: var(--accent);  }
+.badge-green  { background: var(--green-light);  color: var(--green);   }
+.badge-red    { background: var(--red-light);     color: var(--red);    }
+.badge-yellow { background: var(--yellow-light);  color: var(--yellow); }
+.badge-purple { background: var(--purple-light);  color: var(--purple); }
+.badge-gray   { background: var(--gray-light);    color: var(--gray);   }
+
+/* ─── ESTADO EDIT ─── */
+.em-cell { display: flex; align-items: center; gap: 5px; }
+.em-edit { cursor: pointer; color: var(--text2); opacity: .45; font-size: 12px; transition: opacity .15s; }
+.em-edit:hover { opacity: 1; color: var(--accent); }
+.estado-dropdown { position: fixed; background: var(--surface); border: 1.5px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-md); z-index: 300; overflow: hidden; min-width: 180px; display: none; }
+.ed-item { padding: 8px 14px; font-size: 13px; cursor: pointer; transition: background .1s; }
+.ed-item:hover { background: var(--gray-light); }
+.ed-item.selected { font-weight: 700; color: var(--accent); }
+.ed-item.ed-danger { color: var(--red); }
+.ed-item.ed-purple { color: var(--purple); }
+.ed-section { padding: 4px 14px 2px; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; color: var(--text2); }
+.ed-sep { height: 1px; background: var(--border); margin: 4px 0; }
+
+/* ─── PL DOTS ─── */
+.pl-dots { display: flex; gap: 3px; }
+.pl-dot { width: 20px; height: 18px; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 700; cursor: default; }
+.pl-dot.sent  { background: var(--green); color: #fff; }
+.pl-dot.empty { background: var(--gray-light); color: var(--text2); border: 1px solid var(--border); }
+
+/* ─── WAITING TAG ─── */
+.waiting-tag { font-size: 11px; color: var(--text2); font-style: italic; }
+
+/* ─── EMPTY / LOADING ─── */
+.empty-state { text-align: center; padding: 60px 24px; color: var(--text2); }
+.empty-state .emoji { font-size: 40px; display: block; margin-bottom: 12px; }
+.empty-state h3 { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+.empty-state p { line-height: 1.6; }
+.loading-row td { text-align: center; padding: 40px; color: var(--text2); }
+.spinner { display: inline-block; width: 16px; height: 16px; border: 2px solid var(--border); border-top-color: var(--accent); border-radius: 50%; animation: spin .7s linear infinite; margin-right: 6px; vertical-align: middle; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ─── PAGINATION ─── */
+.pagination { display: flex; align-items: center; gap: 5px; padding: 10px 24px 24px; }
+.pagination button { padding: 5px 10px; border: 1.5px solid var(--border); background: var(--surface); border-radius: 6px; font-size: 13px; cursor: pointer; transition: all .15s; font-family: inherit; }
+.pagination button:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
+.pagination button:disabled { opacity: .4; cursor: not-allowed; }
+.pagination button.pg-active { background: var(--accent); border-color: var(--accent); color: #fff; }
+.pagination .pg-info { font-size: 12px; color: var(--text2); margin-left: 8px; }
+
+/* ─── MODAL OVERLAY ─── */
+.overlay { position: fixed; inset: 0; background: rgba(0,0,0,.45); z-index: 200; display: none; align-items: center; justify-content: center; padding: 16px; backdrop-filter: blur(2px); }
+.overlay.open { display: flex; }
+.modal { background: var(--surface); border-radius: 12px; box-shadow: var(--shadow-xl); width: 100%; display: flex; flex-direction: column; overflow: hidden; }
+.modal-header { padding: 16px 20px; border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; justify-content: space-between; flex-shrink: 0; gap: 12px; }
+.modal-header h2 { font-size: 15px; font-weight: 700; line-height: 1.3; }
+.modal-header .sub { font-size: 12px; color: var(--text2); margin-top: 2px; }
+.close-btn { background: none; border: none; cursor: pointer; color: var(--text2); font-size: 18px; line-height: 1; padding: 2px 4px; border-radius: 4px; flex-shrink: 0; }
+.close-btn:hover { background: var(--gray-light); color: var(--text); }
+.modal-meta { padding: 10px 20px; background: var(--gray-light); display: grid; grid-template-columns: auto 1fr; gap: 5px 12px; font-size: 13px; flex-shrink: 0; border-bottom: 1px solid var(--border); }
+.modal-meta .lbl { color: var(--text2); font-weight: 500; white-space: nowrap; }
+.modal-meta .val { color: var(--text); word-break: break-all; }
+.modal-body { flex: 1; overflow-y: auto; padding: 16px 20px; }
+.email-preview { font-size: 13px; line-height: 1.75; color: var(--text); white-space: pre-wrap; word-break: break-word; min-height: 100px; border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; background: #fff; }
+.vars-warn { margin-top: 10px; padding: 8px 12px; background: #FFFBEB; border: 1px solid #FCD34D; border-radius: 6px; font-size: 12px; color: #92400E; }
+.modal-footer { padding: 14px 20px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: flex-end; gap: 10px; flex-shrink: 0; }
+
+/* ─── CONFIG MODAL ─── */
+.field { margin-bottom: 14px; }
+.field label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 5px; }
+.field input { width: 100%; padding: 8px 10px; border: 1.5px solid var(--border); border-radius: var(--radius); font-size: 13px; outline: none; font-family: inherit; }
+.field input:focus { border-color: var(--accent); }
+.field .hint { font-size: 12px; color: var(--text2); margin-top: 4px; line-height: 1.5; }
+.field .hint code { font-family: monospace; background: var(--gray-light); padding: 1px 4px; border-radius: 3px; font-size: 11px; }
+
+/* ─── API DOT ─── */
+.api-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gray); flex-shrink: 0; }
+.api-dot.ok  { background: var(--green); }
+.api-dot.err { background: var(--red); }
+
+/* ─── VIEW TOGGLE ─── */
+.view-toggle { display: flex; gap: 4px; }
+.view-btn { padding: 6px 14px; border: 1.5px solid var(--border); background: var(--surface); border-radius: var(--radius); font-size: 13px; cursor: pointer; font-family: inherit; transition: all .15s; }
+.view-btn:hover { border-color: var(--accent); color: var(--accent); }
+.view-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+/* ─── CALENDAR VIEW ─── */
+.cal-wrap { padding: 0 24px 24px; }
+.cal-month { margin-bottom: 28px; }
+.cal-month-title { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid var(--border); text-transform: capitalize; }
+.cal-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
+.cal-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; box-shadow: var(--shadow); transition: box-shadow .15s; }
+.cal-card:hover { box-shadow: var(--shadow-md); }
+.cal-card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; gap: 8px; }
+.cal-card-name { font-weight: 700; font-size: 14px; }
+.cal-card-act { font-size: 12px; color: var(--text2); margin-top: 2px; }
+.cal-card-meta { display: flex; flex-direction: column; gap: 4px; font-size: 12px; color: var(--text2); }
+.cal-card-meta span { display: flex; align-items: center; gap: 5px; }
+.cal-card-loc { font-size: 11px; color: var(--text2); margin-top: 8px; background: var(--gray-light); padding: 3px 8px; border-radius: 4px; display: inline-block; }
+
+/* ─── ROW NO ACEPTA ─── */
+tbody tr.row-no-acepta { background: #fde8e8 !important; }
+tbody tr.row-no-acepta:hover { background: #fcd4d4 !important; }
+
+/* ─── DISPONIBILIDAD CALENDAR ─── */
+.disp-wrap { padding: 20px 24px 32px; }
+.disp-month-nav { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+.disp-month-btn { background: var(--surface); border: 1.5px solid var(--border); border-radius: var(--radius); width: 32px; height: 32px; cursor: pointer; font-size: 14px; display: flex; align-items: center; justify-content: center; transition: all .15s; }
+.disp-month-btn:hover { border-color: var(--accent); color: var(--accent); }
+.disp-month-label { font-size: 16px; font-weight: 700; min-width: 150px; text-align: center; }
+.disp-legend { display: flex; gap: 16px; margin-bottom: 20px; font-size: 13px; align-items: center; }
+.disp-leg-dot { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 5px; vertical-align: middle; }
+.disp-leg-azul { background: #3B82F6; }
+.disp-leg-amarillo { background: #F59E0B; }
+.disp-section { margin-bottom: 24px; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+.disp-section-hdr { background: var(--gray-light); padding: 8px 14px; font-weight: 700; font-size: 13px; border-bottom: 1px solid var(--border); }
+.disp-cal-wrap { overflow-x: auto; }
+.disp-cal-row { display: flex; align-items: stretch; border-bottom: 1px solid var(--border); }
+.disp-cal-row:last-child { border-bottom: none; }
+.disp-cal-name { width: 150px; min-width: 150px; padding: 5px 10px; font-size: 12px; display: flex; flex-direction: column; justify-content: center; border-right: 2px solid var(--border); background: var(--surface); overflow: hidden; }
+.disp-cal-name span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.disp-cal-name small { font-size: 10px; color: var(--text2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.disp-day-cell { width: 26px; min-width: 26px; height: 36px; border-right: 1px solid rgba(0,0,0,.05); flex-shrink: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 10px; color: var(--text2); }
+.disp-day-cell.is-weekend { background: rgba(0,0,0,.02); }
+.disp-day-cell.is-today-hdr { background: var(--accent-light); color: var(--accent); font-weight: 700; }
+.disp-stay-cell { width: 26px; min-width: 26px; height: 36px; border-right: 1px solid rgba(0,0,0,.04); flex-shrink: 0; }
+.disp-stay-cell.is-weekend { background: rgba(0,0,0,.025); }
+.disp-stay-cell.is-today-col { outline: 2px solid var(--accent); outline-offset: -2px; }
+.disp-stay-cell.stay-azul     { background: #3B82F6; border-right-color: rgba(255,255,255,.25); }
+.disp-stay-cell.stay-amarillo { background: #F59E0B; border-right-color: rgba(255,255,255,.25); }
+.disp-stay-cell.stay-azul.is-weekend     { background: #2563EB; }
+.disp-stay-cell.stay-amarillo.is-weekend { background: #D97706; }
+.disp-day-hdr .disp-cal-name { background: var(--gray-light); font-weight: 600; font-size: 10px; color: var(--text2); }
+
+/* ─── RECORDATORIOS ─── */
+.rem-wrap { padding: 20px 24px 32px; max-width: 900px; }
+.rem-subtitle { font-size: 13px; color: var(--text2); margin-bottom: 24px; }
+.rem-day-group { margin-bottom: 28px; }
+.rem-day-hdr { font-size: 13px; font-weight: 700; padding: 0 0 10px; border-bottom: 2px solid var(--border); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+.rem-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; margin-bottom: 10px; display: flex; align-items: center; gap: 16px; box-shadow: var(--shadow); }
+.rem-card.rem-done { background: var(--gray-light); opacity: .7; }
+.rem-card-info { flex: 1; min-width: 0; }
+.rem-card-name { font-weight: 600; font-size: 14px; margin-bottom: 3px; }
+.rem-card-id { font-size: 11px; color: var(--text2); font-weight: 400; margin-left: 6px; }
+.rem-card-meta { font-size: 12px; color: var(--text2); }
+.rem-card-actions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; justify-content: flex-end; min-width: 200px; }
+.rem-sent { font-size: 11px; color: var(--green); font-weight: 600; white-space: nowrap; display: flex; align-items: center; gap: 4px; }
+
+/* ─── CONFIRMADOS VIEW ─── */
+.conf-wrap { padding: 20px 24px 32px; }
+.conf-header { display: flex; align-items: baseline; gap: 16px; margin-bottom: 24px; }
+.conf-total-num { font-size: 52px; font-weight: 800; color: var(--green); line-height: 1; }
+.conf-total-lbl { font-size: 14px; color: var(--text2); }
+.conf-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; margin-bottom: 32px; }
+.conf-card { background: var(--surface); border: 2px solid var(--green); border-radius: var(--radius); padding: 16px; box-shadow: var(--shadow); }
+.conf-card-count { font-size: 32px; font-weight: 800; color: var(--green); line-height: 1; margin-bottom: 4px; }
+.conf-card-name { font-weight: 700; font-size: 13px; margin-bottom: 8px; }
+.conf-card-artists { font-size: 11px; color: var(--text2); line-height: 1.7; }
+.conf-list-title { font-size: 13px; font-weight: 700; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid var(--border); }
+.conf-row { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
+.conf-row:last-child { border-bottom: none; }
+.conf-row-name { font-weight: 600; flex: 1; }
+.conf-row-camping { color: var(--text2); font-size: 12px; }
+.conf-row-fecha { color: var(--text2); font-size: 12px; white-space: nowrap; }
+
+/* ─── REALIZADAS VIEW ─── */
+.real-wrap { padding: 20px 24px 32px; max-width: 900px; }
+.real-section-title { font-size: 14px; font-weight: 700; margin: 0 0 12px; padding-bottom: 8px; border-bottom: 2px solid var(--border); display: flex; align-items: center; gap: 8px; }
+.real-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; margin-bottom: 10px; display: flex; align-items: center; gap: 16px; box-shadow: var(--shadow); }
+.real-card.en-curso { border-left: 4px solid var(--green); }
+.real-card-info { flex: 1; min-width: 0; }
+.real-card-name { font-weight: 600; font-size: 14px; margin-bottom: 3px; }
+.real-card-meta { font-size: 12px; color: var(--text2); }
+.real-card-actions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; justify-content: flex-end; min-width: 140px; }
+.real-stars { font-size: 13px; color: #F59E0B; font-weight: 600; white-space: nowrap; }
+
+/* ─── TOAST ─── */
+.toast-wrap { position: fixed; bottom: 24px; right: 24px; z-index: 999; display: flex; flex-direction: column; gap: 8px; pointer-events: none; }
+.toast { padding: 10px 16px; border-radius: var(--radius); color: #fff; font-size: 13px; font-weight: 500; box-shadow: var(--shadow-md); display: flex; align-items: center; gap: 8px; max-width: 380px; opacity: 0; transform: translateY(8px); animation: tIn .25s forwards, tOut .25s 3.5s forwards; }
+.toast.success { background: var(--green); }
+.toast.error   { background: var(--red); }
+.toast.info    { background: var(--accent); }
+@keyframes tIn  { to { opacity:1; transform:translateY(0); } }
+@keyframes tOut { to { opacity:0; transform:translateY(8px); } }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-brand">
+    ⛺ Kampaoh Trueque Hub
+    <span id="last-update"></span>
+  </div>
+  <div class="header-actions">
+    <div class="api-dot" id="api-dot" title="Estado API"></div>
+    <button class="btn btn-ghost btn-sm" onclick="showConfigModal()">⚙ API</button>
+    <button class="btn btn-ghost btn-sm" id="refresh-btn" onclick="loadData(true)">↻ Actualizar</button>
+  </div>
+</header>
+
+<!-- NAV NIVEL 1 -->
+<div class="nav-l1">
+  <button class="nav-l1-btn active" id="navl1-total" onclick="navGo('total')">
+    Total <span class="nb" id="st-total">—</span><span class="help-btn" onclick="showHelp('total',event)">?</span>
+  </button>
+  <button class="nav-l1-btn" id="navl1-sincontactar" onclick="navGo('sincontactar')">
+    ✉ Sin contactar <span class="nb" id="st-pendiente">—</span><span class="help-btn" onclick="showHelp('sincontactar',event)">?</span>
+  </button>
+  <button class="nav-l1-btn" id="navl1-contactados" onclick="navGo('contactados')">
+    📬 Contactados <span class="nb" id="st-contactado">—</span><span class="help-btn" onclick="showHelp('contactados',event)">?</span>
+  </button>
+  <div class="nav-l1-sep"></div>
+  <button class="nav-l1-btn" id="navl1-cal" onclick="navGo('cal')">📅 Calendario<span class="help-btn" onclick="showHelp('cal',event)">?</span></button>
+  <button class="nav-l1-btn" id="navl1-disp" onclick="navGo('disp')">🏕️ Disponibilidad<span class="help-btn" onclick="showHelp('disp',event)">?</span></button>
+</div>
+
+<!-- NAV NIVEL 2 — dentro de Contactados -->
+<div class="nav-l2" id="nav-l2" style="display:none">
+  <button class="nav-l2-btn" id="navl2-enproceso" onclick="navGo('enproceso')">
+    ✅ En proceso <span class="nb" id="st-enproceso">—</span><span class="help-btn" onclick="showHelp('enproceso',event)">?</span>
+  </button>
+  <button class="nav-l2-btn" id="navl2-confirmados" onclick="navGo('confirmados')">
+    ⭐ Confirmados ▸<span class="help-btn" onclick="showHelp('confirmados',event)">?</span>
+  </button>
+  <button class="nav-l2-btn" id="navl2-rechazan" onclick="navGo('rechazan')">
+    🚫 Rechazan trueque <span class="nb" id="st-no-acepta">—</span><span class="help-btn" onclick="showHelp('rechazan',event)">?</span>
+  </button>
+  <button class="nav-l2-btn" id="navl2-cancelados" onclick="navGo('cancelados')">
+    ❌ Cancelados <span class="nb" id="st-cancelado">—</span><span class="help-btn" onclick="showHelp('cancelados',event)">?</span>
+  </button>
+  <button class="nav-l2-btn" id="navl2-stop" onclick="navGo('stop')">
+    ⏸ STOP <span class="nb" id="st-stop">—</span><span class="help-btn" onclick="showHelp('stop',event)">?</span>
+  </button>
+  <button class="nav-l2-btn" id="navl2-conflictos" onclick="navGo('conflictos')">
+    ⚠ Conflictos <span class="nb" id="st-conflicto">—</span><span class="help-btn" onclick="showHelp('conflictos',event)">?</span>
+  </button>
+</div>
+
+<!-- NAV NIVEL 3 — dentro de Confirmados -->
+<div class="nav-l3" id="nav-l3" style="display:none">
+  <button class="nav-l3-btn" id="navl3-resumen" onclick="navGo('resumen')">✅ Resumen<span class="help-btn" onclick="showHelp('resumen',event)">?</span></button>
+  <button class="nav-l3-btn" id="navl3-recordatorios" onclick="navGo('recordatorios')">📬 Recordatorios<span class="help-btn" onclick="showHelp('recordatorios',event)">?</span></button>
+  <button class="nav-l3-btn" id="navl3-valoracion" onclick="navGo('valoracion')">⭐ Valoración<span class="help-btn" onclick="showHelp('valoracion',event)">?</span></button>
+</div>
+
+<!-- VALORACIÓN SUBNAV -->
+<div id="valoracion-subnav" style="display:none">
+  <button class="valtab-btn active" id="valtab-valorame" onclick="setValTab('valorame')">📨 Valórame</button>
+  <button class="valtab-btn" id="valtab-total" onclick="setValTab('total')">📊 Total valoración</button>
+</div>
+
+<!-- CONTROLS -->
+<div class="controls">
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="search-input" placeholder="Buscar artista, camping…" oninput="onSearch(this.value)">
+  </div>
+  <select class="filter-sel" id="camping-sel" onchange="onFilterChange()">
+    <option value="">Todos los campings</option>
+  </select>
+  <select class="filter-sel" id="em-sel" onchange="onEMSelChange()">
+    <option value="">Todos los estados</option>
+    <option value="Pendiente">Sin contactar</option>
+    <option value="Contactado">Contactados</option>
+    <option value="En proceso">En proceso</option>
+    <option value="cancelados">Cancelados / Rechazados</option>
+    <option value="Cancelado STOP">STOP</option>
+    <option value="conflicto">Conflictos de fecha</option>
+  </select>
+  <span class="row-count" id="row-count"></span>
+</div>
+
+<!-- TABLE -->
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th onclick="sortBy('id')">ID <span class="sort-arrow">↕</span></th>
+        <th onclick="sortBy('nombre')">Artista <span class="sort-arrow">↕</span></th>
+        <th onclick="sortBy('actividad')">Actividad <span class="sort-arrow">↕</span></th>
+        <th onclick="sortBy('camping')">Camping <span class="sort-arrow">↕</span></th>
+        <th onclick="sortBy('llegada')">Llegada <span class="sort-arrow">↕</span></th>
+        <th>Estado</th>
+        <th title="PLs enviados (02-06)">PLs</th>
+        <th style="min-width:170px">Acción</th>
+      </tr>
+    </thead>
+    <tbody id="tbody">
+      <tr class="loading-row"><td colspan="8"><span class="spinner"></span> Cargando…</td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="pagination" id="pg-bar"></div>
+
+<!-- CALENDAR VIEW -->
+<div class="cal-wrap" id="cal-view" style="display:none"></div>
+
+<!-- DISPONIBILIDAD VIEW -->
+<div id="disp-view" style="display:none"></div>
+
+<!-- RECORDATORIOS VIEW -->
+<div id="reminders-view" style="display:none"></div>
+
+<!-- CONFIRMADOS VIEW -->
+<div id="confirmados-view" style="display:none"></div>
+
+<!-- REALIZADAS VIEW -->
+<div id="realizadas-view" style="display:none"></div>
+
+<!-- TOTAL VALORACIÓN VIEW -->
+<div id="total-valoracion-view" style="display:none"></div>
+
+<!-- ESTADO DROPDOWN -->
+<div class="estado-dropdown" id="estado-dd">
+  <div class="ed-section">Estado email</div>
+  <div class="ed-item" onclick="selectEstado('Pendiente')">✉ Pendiente</div>
+  <div class="ed-item" onclick="selectEstado('Contactado')">📬 Contactado</div>
+  <div class="ed-item" onclick="selectEstado('Completado')" style="color:var(--green)">✅ Completado</div>
+  <div class="ed-sep"></div>
+  <div class="ed-section">Estado</div>
+  <div class="ed-item ed-danger" onclick="selectEstadoProc('Cancelado')">❌ Cancelado</div>
+  <div class="ed-item ed-purple" onclick="selectEstadoProc('Cancelado STOP')">⏸ Cancelado STOP</div>
+</div>
+
+<!-- PREVIEW MODAL -->
+<div class="overlay" id="preview-overlay" onclick="if(event.target===this)closePreview()">
+  <div class="modal" style="max-width:660px;max-height:88vh">
+    <div class="modal-header">
+      <div>
+        <h2 id="pm-title">Vista previa</h2>
+        <div class="sub" id="pm-sub"></div>
+      </div>
+      <button class="close-btn" onclick="closePreview()">✕</button>
+    </div>
+    <div class="modal-meta" id="pm-meta"></div>
+    <div class="modal-body">
+      <div class="email-preview" id="pm-body">Cargando…</div>
+      <div class="vars-warn" id="pm-vars" style="display:none"></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-ghost" onclick="closePreview()">Cancelar</button>
+      <button class="btn btn-primary" id="pm-send-btn" onclick="confirmSend()" disabled>⏳ Cargando…</button>
+    </div>
+  </div>
+</div>
+
+<!-- CONFIG MODAL -->
+<div class="overlay" id="config-overlay" onclick="if(event.target===this)closeConfig()">
+  <div class="modal" style="max-width:480px;max-height:80vh">
+    <div class="modal-header">
+      <div><h2>Configurar conexión API</h2></div>
+      <button class="close-btn" onclick="closeConfig()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="field">
+        <label>URL del Apps Script (Web App)</label>
+        <input type="url" id="api-url-input" placeholder="https://script.google.com/macros/s/…/exec">
+        <div class="hint">
+          Obtén la URL en Apps Script → <strong>Implementar → Administrar implementaciones</strong>.<br>
+          Formato: <code>https://script.google.com/macros/s/AKfycb.../exec</code>
+        </div>
+      </div>
+      <div class="field">
+        <label>Remitente de los emails</label>
+        <input type="text" value="noemirodriguez@kampaoh.com" disabled style="background:var(--gray-light);color:var(--text2)">
+        <div class="hint">Los emails se envían desde la cuenta Google autorizada en el script.</div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-ghost" onclick="closeConfig()">Cancelar</button>
+      <button class="btn btn-primary" onclick="saveConfig()">Guardar y conectar</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast-wrap" id="toast-wrap"></div>
+
+<script>
+// ─── STATE ───────────────────────────────────────────────────
+const S = {
+  rows:    [],
+  kpis:    {},
+  apiUrl:  localStorage.getItem('kt_api_url') || '',
+  filter:  { search: '', camping: '', state: 'all' },
+  sort:    { key: 'id', dir: 1 },
+  page:    1,
+  perPage: 25,
+  preview: null,
+  editId:  null
+};
+
+// ─── LOAD ────────────────────────────────────────────────────
+async function loadData(msg) {
+  if (!S.apiUrl) { showConfigModal(); return; }
+
+  const btn = document.getElementById('refresh-btn');
+  btn.disabled = true;
+  btn.textContent = '↻ Cargando…';
+  setTbody('<tr class="loading-row"><td colspan="8"><span class="spinner"></span> Cargando datos…</td></tr>');
+
+  try {
+    const res  = await fetch(S.apiUrl + '?action=getData', { redirect: 'follow' });
+    const data = await res.json();
+    if (data.error) throw new Error(data.error);
+
+    S.rows = (data.rows || []).map(function(r) {
+      if (r.estado === 'Cancelada')      r.estado = 'Cancelado';
+      if (r.estado === 'Cancelada STOP') r.estado = 'Cancelado STOP';
+      return r;
+    });
+    S.kpis = data.kpis || {};
+    S.page = 1;
+
+    renderStats();
+    fillCampingFilter();
+    renderTable();
+    setDot(true);
+
+    // Siempre sincronizar colores de conflicto (también borra amarillo cuando se resuelven)
+    fetch(S.apiUrl + '?action=colorConflictos', { redirect: 'follow' }).catch(() => {});
+
+    const t = new Date().toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' });
+    document.getElementById('last-update').textContent = 'actualizado ' + t;
+    if (msg) showToast('Datos actualizados ✓', 'success');
+  } catch (err) {
+    setDot(false);
+    setTbody('<tr><td colspan="8" style="padding:40px;text-align:center;color:var(--red)">⚠ ' + esc(err.message) + '</td></tr>');
+    if (msg) showToast('Error: ' + err.message, 'error');
+  }
+
+  btn.disabled = false;
+  btn.textContent = '↻ Actualizar';
+}
+
+// ─── STATS ───────────────────────────────────────────────────
+function esContactado(r) {
+  return r.estadoEmail === 'Contactado' || r.pl2 === 'Sí';
+}
+function esPendiente(r) {
+  return !['Rechaza','No acepta','Cancelado','Cancelado STOP','En proceso'].includes(r.estado) && !esContactado(r);
+}
+
+function renderStats() {
+  setText('st-total',      S.rows.length);
+  setText('st-pendiente',  S.rows.filter(esPendiente).length);
+  setText('st-contactado', S.rows.filter(esContactado).length);
+  setText('st-enproceso',  S.rows.filter(r => r.estado === 'En proceso').length);
+  setText('st-no-acepta',  S.rows.filter(r => ['No acepta','Rechaza'].includes(r.estado)).length);
+  setText('st-cancelado',  S.rows.filter(r => r.estado === 'Cancelado').length);
+  setText('st-stop',       S.rows.filter(r => r.estado === 'Cancelado STOP').length);
+  setText('st-conflicto',  S.rows.filter(r => r.conflicto).length);
+}
+
+function setFilterState(state) {
+  S.filter.state = state;
+  S.page = 1;
+  document.querySelectorAll('.stat-pill').forEach(p =>
+    p.classList.toggle('active', p.dataset.filter === state)
+  );
+  const validOpts = ['Pendiente','Contactado','En proceso','cancelados','Cancelado STOP','conflicto'];
+  document.getElementById('em-sel').value = validOpts.includes(state) ? state : '';
+  renderTable();
+}
+
+// ─── FILTER / SORT ───────────────────────────────────────────
+function fillCampingFilter() {
+  const cs = [...new Set(S.rows.map(r => r.camping).filter(Boolean))].sort();
+  const sel = document.getElementById('camping-sel');
+  const cur = sel.value;
+  sel.innerHTML = '<option value="">Todos los campings</option>' +
+    cs.map(c => `<option${c===cur?' selected':''}>${c}</option>`).join('');
+}
+
+function onSearch(v)   { S.filter.search = v.toLowerCase(); S.page = 1; renderTable(); }
+function onFilterChange() {
+  S.filter.camping = document.getElementById('camping-sel').value;
+  S.page = 1; renderTable();
+}
+function onEMSelChange() {
+  const v = document.getElementById('em-sel').value;
+  S.filter.state = v || 'all';
+  document.querySelectorAll('.stat-pill').forEach(p =>
+    p.classList.toggle('active', p.dataset.filter === (v || 'all'))
+  );
+  S.page = 1; renderTable();
+}
+
+function getRows() {
+  return S.rows.filter(r => {
+    if (S.filter.state !== 'all') {
+      const st = S.filter.state;
+      let match = false;
+      if      (st === 'Pendiente')       match = esPendiente(r);
+      else if (st === 'Contactado')      match = esContactado(r);
+      else if (st === 'En proceso')      match = r.estado === 'En proceso';
+      else if (st === 'no-acepta')       match = ['No acepta','Rechaza'].includes(r.estado);
+      else if (st === 'cancelados')      match = r.estado === 'Cancelado';
+      else if (st === 'Cancelado STOP')  match = r.estado === 'Cancelado STOP';
+      else if (st === 'conflicto')       match = r.conflicto === true;
+      if (!match) return false;
+    }
+    if (S.filter.camping && r.camping !== S.filter.camping) return false;
+    if (S.filter.search) {
+      const h = [r.id, r.nombre, r.email, r.actividad, r.camping, r.estadoEmail, r.estado, r.localizador].join(' ').toLowerCase();
+      if (!h.includes(S.filter.search)) return false;
+    }
+    return true;
+  });
+}
+
+function sortBy(key) {
+  if (S.sort.key === key) S.sort.dir *= -1;
+  else { S.sort.key = key; S.sort.dir = 1; }
+  S.page = 1; renderTable();
+}
+
+function sorted(rows) {
+  const { key, dir } = S.sort;
+  return [...rows].sort((a, b) => {
+    const av = String(a[key] || '').toLowerCase();
+    const bv = String(b[key] || '').toLowerCase();
+    return av < bv ? -dir : av > bv ? dir : 0;
+  });
+}
+
+// ─── RENDER TABLE ────────────────────────────────────────────
+function renderTable() {
+  const all   = sorted(getRows());
+  const total = all.length;
+  const start = (S.page - 1) * S.perPage;
+  const page  = all.slice(start, start + S.perPage);
+
+  document.getElementById('row-count').textContent = total + ' registro' + (total !== 1 ? 's' : '');
+
+  // sort arrows
+  document.querySelectorAll('thead th').forEach(th => {
+    const m = (th.getAttribute('onclick') || '').match(/sortBy\('(\w+)'\)/);
+    const arrow = th.querySelector('.sort-arrow');
+    if (!m || !arrow) return;
+    th.classList.toggle('sorted', m[1] === S.sort.key);
+    arrow.textContent = m[1] === S.sort.key ? (S.sort.dir === 1 ? '↑' : '↓') : '↕';
+  });
+
+  if (!total) {
+    setTbody('<tr><td colspan="8"><div class="empty-state"><span class="emoji">' +
+      (S.rows.length ? '🔍' : '📭') + '</span><h3>' +
+      (S.rows.length ? 'Sin resultados' : 'Sin datos en BDD_Trueque') + '</h3><p>' +
+      (S.rows.length ? 'Prueba con otros filtros.' : 'Importa artistas aprobados desde la hoja Formulario.') +
+      '</p></div></td></tr>');
+    renderPG(0);
+    return;
+  }
+
+  setTbody(page.map(r => rowHTML(r)).join(''));
+  renderPG(total);
+}
+
+function rowHTML(r) {
+  const rowCls  = ['Rechaza','No acepta','Cancelado'].includes(r.estado) ? 'row-rechaza row-no-acepta' : (r.conflicto ? 'row-conflicto' : '');
+  const emBadge = emBadgeHTML(r.estadoEmail);
+  const estBadge= estadoBadgeHTML(r.estado);
+  const confIcon= r.conflicto ? ' <span title="Conflicto de fechas en este camping">⚠</span>' : '';
+  const dots    = plDotsHTML(r);
+  const act     = actionsHTML(r);
+  return `<tr class="${rowCls}">
+    <td class="td-id">${esc(r.id)}${confIcon}</td>
+    <td>
+      <div class="td-name">${esc(r.nombre)}</div>
+      <div class="td-email">${esc(r.email)}</div>
+    </td>
+    <td class="td-act" title="${esc(r.actividad)}">${esc(r.actividad)}</td>
+    <td style="white-space:nowrap">${esc(r.camping)}</td>
+    <td style="white-space:nowrap">${esc(r.llegada)}</td>
+    <td>
+      <div class="em-cell">
+        ${emBadge}
+        <span class="em-edit" title="Cambiar estado email" onclick="openEstadoDD(event,'${esc(r.id)}','${esc(r.estadoEmail)}')">✎</span>
+      </div>
+      ${estBadge ? `<div style="margin-top:4px">${estBadge}</div>` : ''}
+    </td>
+    <td>${dots}</td>
+    <td><div class="td-actions">${act}</div></td>
+  </tr>`;
+}
+
+function emBadgeHTML(em) {
+  const m = { 'Pendiente':'badge-blue', 'Contactado':'badge-yellow', 'Completado':'badge-green' };
+  return em ? `<span class="badge ${m[em]||'badge-gray'}">${esc(em)}</span>` : '<span class="badge badge-gray">—</span>';
+}
+
+function estadoBadgeHTML(estado) {
+  const m = { 'En proceso':'badge-green', 'Rechaza':'badge-red', 'No acepta':'badge-red',
+              'Cancelado':'badge-red', 'Cancelado STOP':'badge-purple' };
+  return estado ? `<span class="badge ${m[estado]||'badge-gray'}" style="font-size:10px">${esc(estado)}</span>` : '';
+}
+
+function plDotsHTML(r) {
+  const pls = ['pl2','pl3','pl4','pl5','pl6','pl7','pl8','pl9'];
+  return '<div class="pl-dots">' +
+    pls.map((k,i) => {
+      const num = i + 2;
+      const lbl = num < 10 ? '0' + num : '' + num;
+      return `<div class="pl-dot ${r[k]==='Sí'?'sent':'empty'}" title="PL-${lbl}: ${r[k]==='Sí'?'Enviado ✓':'Pendiente'}">${lbl}</div>`;
+    }).join('') + '</div>';
+}
+
+function actionsHTML(r) {
+  const estado = r.estado || '';
+  const estadoEmail = r.estadoEmail || '';
+
+  // No acepta / Rechaza → sin botones, indicador visual
+  if (estado === 'No acepta' || estado === 'Rechaza') {
+    return '<span class="waiting-tag" style="color:var(--red)">🚫 No realizará el trueque</span>';
+  }
+
+  const btns = [];
+
+  // Sin contactar → PL-02
+  if (esPendiente(r)) {
+    btns.push(`<button class="btn btn-primary btn-xs" onclick="openPreview('${r.id}','PL-02')">✉ PL-02</button>`);
+  }
+  // Cancelado → PL-03
+  if (estado === 'Cancelado' && r.pl3 !== 'Sí') {
+    btns.push(`<button class="btn btn-danger btn-xs" onclick="openPreview('${r.id}','PL-03')">✉ PL-03</button>`);
+  }
+  // Cancelado STOP → PL-04
+  if (estado === 'Cancelado STOP' && r.pl4 !== 'Sí') {
+    btns.push(`<button class="btn btn-purple btn-xs" onclick="openPreview('${r.id}','PL-04')">✉ PL-04</button>`);
+  }
+  // En proceso → PL-05 + PL-06
+  if (estado === 'En proceso') {
+    if (r.pl5 !== 'Sí') btns.push(`<button class="btn btn-success btn-xs" onclick="openPreview('${r.id}','PL-05')">✉ PL-05</button>`);
+    if (r.pl6 !== 'Sí') btns.push(`<button class="btn btn-warning btn-xs" onclick="openPreview('${r.id}','PL-06')">⛺ PL-06</button>`);
+  }
+  // Evento ya creado → botón para añadir/actualizar invitados
+  if (r.calendar === 'Evento creado') {
+    btns.push(`<button class="btn btn-ghost btn-xs" title="Añadir artista y camping al evento de Calendar" onclick="updateCalGuest('${r.id}')">📅 Invitar</button>`);
+  }
+
+  if (btns.length) return btns.join('');
+
+  // Sin botones: estado de espera
+  if (estadoEmail === 'Contactado' && !estado) return '<span class="waiting-tag">📬 Esperando respuesta…</span>';
+  // Confirmado + salida pasada → PL-09 seguimiento
+  if (r.pl5 === 'Sí' && r.pl6 === 'Sí') {
+    const sa = parseFecha(r.salida);
+    const hoy = new Date(); hoy.setHours(0,0,0,0);
+    if (sa && sa < hoy && r.pl9 !== 'Sí') {
+      btns.push(`<button class="btn btn-purple btn-xs" onclick="openPreview('${r.id}','PL-09')">⭐ PL-09</button>`);
+    }
+  }
+
+  if (btns.length) return btns.join('');
+
+  if (estadoEmail === 'Contactado' && !estado) return '<span class="waiting-tag">📬 Esperando respuesta…</span>';
+  if (estado === 'En proceso' && r.pl5 === 'Sí' && r.pl6 === 'Sí') return '<span class="waiting-tag" style="color:var(--green)">✓ Todo enviado</span>';
+  return '';
+}
+
+// ─── PAGINATION ──────────────────────────────────────────────
+function renderPG(total) {
+  const pages = Math.ceil(total / S.perPage);
+  if (pages <= 1) { document.getElementById('pg-bar').innerHTML = ''; return; }
+  const start = (S.page - 1) * S.perPage + 1;
+  const end   = Math.min(S.page * S.perPage, total);
+  let h = `<button onclick="goPage(${S.page-1})" ${S.page===1?'disabled':''}>‹</button>`;
+  for (let i = 1; i <= pages; i++) {
+    if (i===1||i===pages||Math.abs(i-S.page)<=1) h += `<button onclick="goPage(${i})" class="${i===S.page?'pg-active':''}">${i}</button>`;
+    else if (Math.abs(i-S.page)===2) h += `<span style="color:var(--text2);padding:0 2px">…</span>`;
+  }
+  h += `<button onclick="goPage(${S.page+1})" ${S.page===pages?'disabled':''}>›</button>`;
+  h += `<span class="pg-info">${start}–${end} de ${total}</span>`;
+  document.getElementById('pg-bar').innerHTML = h;
+}
+
+function goPage(p) { S.page = p; renderTable(); window.scrollTo(0,0); }
+
+// ─── PREVIEW MODAL ───────────────────────────────────────────
+const PL_LABELS = {
+  'PL-02': 'PL-02 · Primer contacto',
+  'PL-03': 'PL-03 · Cancelación',
+  'PL-04': 'PL-04 · Contactado STOP',
+  'PL-05': 'PL-05 · Confirmación artista',
+  'PL-06': 'PL-06 · Aviso al camping',
+  'PL-07': 'PL-07 · Último aviso artista',
+  'PL-08': 'PL-08 · Último aviso camping',
+  'PL-09': 'PL-09 · Seguimiento post-trueque'
+};
+
+async function openPreview(id, pl) {
+  if (!S.apiUrl) { showToast('Configura la API primero', 'error'); showConfigModal(); return; }
+
+  S.preview = { id, pl };
+  const row = S.rows.find(r => r.id === id);
+
+  document.getElementById('pm-title').textContent = PL_LABELS[pl] || pl;
+  document.getElementById('pm-sub').textContent   = row ? row.nombre + ' · ' + row.camping : id;
+  document.getElementById('pm-meta').innerHTML    = '';
+  document.getElementById('pm-body').innerHTML    = '<span class="spinner"></span> Renderizando plantilla…';
+  document.getElementById('pm-vars').style.display = 'none';
+  document.getElementById('pm-send-btn').disabled  = true;
+  document.getElementById('pm-send-btn').textContent = '⏳ Cargando…';
+  document.getElementById('preview-overlay').classList.add('open');
+
+  try {
+    const url  = S.apiUrl + '?action=getPreview&id=' + encodeURIComponent(id) + '&pl=' + encodeURIComponent(pl);
+    const res  = await fetch(url, { redirect: 'follow' });
+    const data = await res.json();
+
+    if (!data.ok) throw new Error(data.error || 'Error al obtener la vista previa');
+
+    S.preview = { ...S.preview, ...data };
+
+    document.getElementById('pm-meta').innerHTML =
+      `<span class="lbl">De:</span>     <span class="val">noemirodriguez@kampaoh.com</span>` +
+      `<span class="lbl">Para:</span>   <span class="val">${data.toName ? esc(data.toName) + ' &lt;' + esc(data.to) + '&gt;' : esc(data.to)}</span>` +
+      `<span class="lbl">Asunto:</span> <span class="val"><strong>${esc(data.subject)}</strong></span>`;
+
+    document.getElementById('pm-body').textContent = data.bodyText || '';
+
+    const w = document.getElementById('pm-vars');
+    const warnings = [];
+    if (data.campingDebug && data.campingDebug.nombre && !data.campingDebug.found) {
+      warnings.push('⛺ Camping "<strong>' + esc(data.campingDebug.nombre) + '</strong>" no encontrado en la hoja Campings — verifica que el nombre coincida exactamente.');
+    }
+    if (!data.campingDebug?.nombre && data.varsSin && data.varsSin.some(v => v.includes('camping') || v.includes('franja') || v.includes('espacio') || v.includes('notas') || v.includes('horario') || v.includes('zona'))) {
+      warnings.push('⛺ El campo <strong>Camping</strong> está vacío en BDD_Trueque para este registro.');
+    }
+    if (data.varsSin && data.varsSin.length) {
+      warnings.push('⚠ Variables sin sustituir: <strong>' + data.varsSin.map(esc).join(', ') + '</strong>.');
+    }
+    if (warnings.length) {
+      w.style.display = 'block';
+      w.innerHTML = warnings.join('<br>');
+    } else {
+      w.style.display = 'none';
+    }
+
+    const isPL06 = S.preview && S.preview.pl === 'PL-06';
+    document.getElementById('pm-send-btn').disabled    = false;
+    document.getElementById('pm-send-btn').textContent = isPL06
+      ? '📝 Crear borrador + evento Google Calendar'
+      : '📝 Crear borrador en Gmail';
+
+  } catch (err) {
+    document.getElementById('pm-body').innerHTML = '<span style="color:var(--red)">⚠ ' + esc(err.message) + '</span>';
+    showToast('Error: ' + err.message, 'error');
+  }
+}
+
+function closePreview() {
+  document.getElementById('preview-overlay').classList.remove('open');
+  S.preview = null;
+}
+
+async function confirmSend() {
+  if (!S.preview) return;
+  const { id, pl } = S.preview;
+
+  const btn = document.getElementById('pm-send-btn');
+  btn.disabled = true;
+  btn.textContent = '⏳ Creando borrador…';
+
+  try {
+    const url  = S.apiUrl + '?action=sendMail&id=' + encodeURIComponent(id) + '&pl=' + encodeURIComponent(pl);
+    const res  = await fetch(url, { redirect: 'follow' });
+    const data = await res.json();
+
+    if (!data.ok) {
+      if (data.duplicate) { showToast('Este borrador ya fue creado antes.', 'info'); closePreview(); return; }
+      throw new Error(data.error || 'Error al crear borrador');
+    }
+
+    closePreview();
+
+    // Actualizar S.rows en memoria
+    var plFields = {'PL-02':'pl2','PL-03':'pl3','PL-04':'pl4','PL-05':'pl5',
+                    'PL-06':'pl6','PL-07':'pl7','PL-08':'pl8','PL-09':'pl9'};
+    var plKey = plFields[pl];
+    var rowObj = S.rows.find(function(r){ return r.id === id; });
+    if (rowObj && plKey) rowObj[plKey] = 'Sí';
+    if (rowObj && pl === 'PL-02') rowObj.estadoEmail = 'Contactado';
+    if (rowObj && pl === 'PL-06') { rowObj.estadoEmail = 'Completado'; rowObj.calendar = 'Evento creado'; }
+
+    const msg = pl === 'PL-06'
+      ? '📝 Borrador creado + evento añadido a Google Calendar ✓'
+      : '📝 Borrador creado en Gmail para ' + data.to + ' ✓';
+    showToast(msg, 'success');
+
+    if (pl === 'PL-06') {
+      // Solo PL-06 necesita recarga completa (para ver el evento en Calendar)
+      await loadData(false);
+      navGo('cal');
+    } else {
+      // Para el resto: re-render inmediato con datos ya actualizados en memoria
+      var cv = S.currentView || 'lista';
+      if (cv === 'recordatorios') renderRecordatorios();
+      else if (cv === 'valoracion')  setValTab(S.valoracionTab || 'valorame');
+      else if (cv === 'confirmados') renderConfirmados();
+      else renderTable();
+    }
+
+  } catch (err) {
+    btn.disabled = false;
+    btn.textContent = pl === 'PL-06' ? '📝 Crear borrador + evento Google Calendar' : '📝 Crear borrador en Gmail';
+    showToast('Error: ' + err.message, 'error');
+  }
+}
+
+// ─── ESTADO EMAIL EDIT ───────────────────────────────────────
+function openEstadoDD(event, id, current) {
+  event.stopPropagation();
+  S.editId = id;
+  const dd = document.getElementById('estado-dd');
+  dd.querySelectorAll('.ed-item').forEach(el => {
+    const t = el.textContent.trim().replace(/^[^\w]+/, '').trim();
+    el.classList.toggle('selected', t === current || el.textContent.includes(current));
+  });
+  const r = event.target.getBoundingClientRect();
+  dd.style.top  = (r.bottom + 4) + 'px';
+  dd.style.left = Math.min(r.left, window.innerWidth - 185) + 'px';
+  dd.style.display = 'block';
+}
+
+async function selectEstado(estado) {
+  document.getElementById('estado-dd').style.display = 'none';
+  const id = S.editId;
+  if (!id || !S.apiUrl) return;
+
+  try {
+    const url  = S.apiUrl + '?action=updateEstado&id=' + encodeURIComponent(id) + '&estado=' + encodeURIComponent(estado);
+    const res  = await fetch(url, { redirect: 'follow' });
+    const data = await res.json();
+    if (!data.ok) throw new Error(data.error);
+    showToast('Estado → ' + estado + ' ✓', 'success');
+    await loadData(false);
+  } catch (err) {
+    showToast('Error: ' + err.message, 'error');
+  }
+}
+
+async function updateCalGuest(id) {
+  if (!S.apiUrl) return;
+  showToast('Actualizando invitados del evento…', 'info');
+  try {
+    const res  = await fetch(S.apiUrl + '?action=updateCalGuest&id=' + encodeURIComponent(id), { redirect: 'follow' });
+    const data = await res.json();
+    if (!data.ok) throw new Error(data.error);
+    showToast('Invitados añadidos: ' + data.added.join(', ') + ' ✓', 'success');
+  } catch (err) {
+    showToast('Error: ' + err.message, 'error');
+  }
+}
+
+async function selectEstadoProc(estado) {
+  document.getElementById('estado-dd').style.display = 'none';
+  const id = S.editId;
+  if (!id || !S.apiUrl) return;
+  try {
+    const url  = S.apiUrl + '?action=updateEstadoProc&id=' + encodeURIComponent(id) + '&estado=' + encodeURIComponent(estado);
+    const res  = await fetch(url, { redirect: 'follow' });
+    const data = await res.json();
+    if (!data.ok) throw new Error(data.error);
+    showToast('Estado → ' + estado + ' ✓', 'success');
+    await loadData(false);
+  } catch (err) {
+    showToast('Error: ' + err.message, 'error');
+  }
+}
+
+document.addEventListener('click', () => {
+  document.getElementById('estado-dd').style.display = 'none';
+});
+
+// ─── CONFIG MODAL ────────────────────────────────────────────
+function showConfigModal() {
+  document.getElementById('api-url-input').value = S.apiUrl;
+  document.getElementById('config-overlay').classList.add('open');
+}
+function closeConfig() {
+  document.getElementById('config-overlay').classList.remove('open');
+}
+function saveConfig() {
+  const url = document.getElementById('api-url-input').value.trim();
+  if (!url) { showToast('Introduce la URL', 'error'); return; }
+  if (!url.includes('script.google.com')) { showToast('La URL debe ser de script.google.com', 'error'); return; }
+  S.apiUrl = url;
+  localStorage.setItem('kt_api_url', url);
+  closeConfig();
+  showToast('API configurada ✓', 'success');
+  loadData(true);
+}
+
+// ─── UTILS ───────────────────────────────────────────────────
+function esc(s) {
+  if (!s) return '';
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function actividadBadge(act, size) {
+  if (!act) return '';
+  var a = act.toLowerCase()
+    .replace(/[áàä]/g,'a').replace(/[éèë]/g,'e')
+    .replace(/[íìï]/g,'i').replace(/[óòö]/g,'o').replace(/[úùü]/g,'u');
+  var bg = '#F3F4F6', fg = '#374151';
+  if      (a.indexOf('yoga') >= 0)                                    { bg = '#D1FAE5'; fg = '#065F46'; }
+  else if (a.indexOf('pilates') >= 0)                                  { bg = '#EDE9FE'; fg = '#5B21B6'; }
+  else if (a.indexOf('meditac') >= 0)                                  { bg = '#DBEAFE'; fg = '#1E40AF'; }
+  else if (a.indexOf('dj') >= 0)                                       { bg = '#FEE2E2'; fg = '#991B1B'; }
+  else if (a.indexOf('musica') >= 0 || a.indexOf('musico') >= 0 ||
+           a.indexOf('actuac') >= 0 || a.indexOf('concierto') >= 0)    { bg = '#FFEDD5'; fg = '#9A3412'; }
+  else if (a.indexOf('workshop') >= 0 || a.indexOf('taller') >= 0)    { bg = '#FEF3C7'; fg = '#92400E'; }
+  else if (a.indexOf('fotograf') >= 0)                                 { bg = '#CFFAFE'; fg = '#164E63'; }
+  else if (a.indexOf('arte') >= 0 || a.indexOf('pintura') >= 0)       { bg = '#FCE7F3'; fg = '#9D174D'; }
+  else if (a.indexOf('baile') >= 0 || a.indexOf('danza') >= 0)        { bg = '#FDF4FF'; fg = '#86198F'; }
+  else if (a.indexOf('circo') >= 0 || a.indexOf('malaba') >= 0)       { bg = '#FFEDD5'; fg = '#EA580C'; }
+  else if (a.indexOf('teatro') >= 0)                                   { bg = '#FFF1F2'; fg = '#BE123C'; }
+  else if (a.indexOf('mago') >= 0 || a.indexOf('magia') >= 0)         { bg = '#F3E8FF'; fg = '#6B21A8'; }
+  else if (a.indexOf('cocina') >= 0 || a.indexOf('gastrono') >= 0)    { bg = '#FEF9C3'; fg = '#713F12'; }
+  else if (a.indexOf('surf') >= 0 || a.indexOf('deporte') >= 0)       { bg = '#DBEAFE'; fg = '#1D4ED8'; }
+  var fs = size || '11px';
+  return '<span style="display:inline-block;background:' + bg + ';color:' + fg + ';font-size:' + fs + ';font-weight:700;padding:2px 8px;border-radius:99px;white-space:nowrap">' + esc(act) + '</span>';
+}
+function starsHTML(n) {
+  var num = parseInt(n) || 0;
+  if (num < 1 || num > 5) return '';
+  var s = '';
+  for (var i = 0; i < 5; i++) s += i < num ? '★' : '☆';
+  return '<span style="color:#F59E0B;font-size:15px;letter-spacing:1px" title="' + num + ' de 5 estrellas">' + s + '</span>';
+}
+
+function setText(id, v) { const el = document.getElementById(id); if (el) el.textContent = v; }
+function setTbody(html) { document.getElementById('tbody').innerHTML = html; }
+function setDot(ok) {
+  const d = document.getElementById('api-dot');
+  d.className = 'api-dot ' + (ok ? 'ok' : 'err');
+  d.title = ok ? 'API conectada' : 'Sin conexión';
+}
+
+function showToast(msg, type) {
+  const wrap = document.getElementById('toast-wrap');
+  const el   = document.createElement('div');
+  el.className = 'toast ' + (type || 'info');
+  el.textContent = msg;
+  wrap.appendChild(el);
+  el.addEventListener('animationend', e => { if (e.animationName === 'tOut') el.remove(); });
+}
+
+// ─── VISTA CALENDARIO ────────────────────────────────────────
+function setView(v) {
+  S.currentView = v;
+  document.querySelector('.table-wrap').style.display      = v === 'lista'         ? '' : 'none';
+  document.getElementById('pg-bar').style.display          = v === 'lista'         ? '' : 'none';
+  document.getElementById('cal-view').style.display        = v === 'calendar'      ? '' : 'none';
+  document.getElementById('disp-view').style.display       = v === 'disp'          ? '' : 'none';
+  document.getElementById('reminders-view').style.display  = v === 'recordatorios' ? '' : 'none';
+  document.getElementById('confirmados-view').style.display = v === 'confirmados'  ? '' : 'none';
+  var isVal = v === 'valoracion';
+  document.getElementById('valoracion-subnav').style.display = isVal ? 'flex' : 'none';
+  if (!isVal) {
+    document.getElementById('realizadas-view').style.display = 'none';
+    document.getElementById('total-valoracion-view').style.display = 'none';
+  }
+  if (v === 'calendar')      renderCalendar();
+  if (v === 'disp')          renderDisponibilidad();
+  if (v === 'recordatorios') renderRecordatorios();
+  if (v === 'confirmados')   renderConfirmados();
+  if (v === 'valoracion')    setValTab(S.valoracionTab || 'valorame');
+}
+
+function navGo(key) {
+  var L1_IDS = ['navl1-total','navl1-sincontactar','navl1-contactados','navl1-cal','navl1-disp'];
+  var L2_IDS = ['navl2-enproceso','navl2-confirmados','navl2-rechazan','navl2-cancelados','navl2-stop','navl2-conflictos'];
+  var L3_IDS = ['navl3-resumen','navl3-recordatorios','navl3-valoracion'];
+  L1_IDS.concat(L2_IDS).concat(L3_IDS).forEach(function(id){
+    var el = document.getElementById(id); if (el) el.classList.remove('active');
+  });
+
+  var l1 = 'total', showL2 = false, showL3 = false, l2 = null, l3 = null;
+  var TABLE_FILTERS = {
+    'total': 'all', 'sincontactar': 'Pendiente', 'contactados': 'Contactado',
+    'enproceso': 'En proceso', 'rechazan': 'no-acepta',
+    'cancelados': 'cancelados', 'stop': 'Cancelado STOP', 'conflictos': 'conflicto'
+  };
+
+  if (key === 'total')       { l1 = 'total'; }
+  else if (key === 'sincontactar') { l1 = 'sincontactar'; }
+  else if (key === 'cal')    { l1 = 'cal'; }
+  else if (key === 'disp')   { l1 = 'disp'; }
+  else {
+    l1 = 'contactados'; showL2 = true;
+    if      (key === 'enproceso')  { l2 = 'enproceso'; }
+    else if (key === 'rechazan')   { l2 = 'rechazan'; }
+    else if (key === 'cancelados') { l2 = 'cancelados'; }
+    else if (key === 'stop')       { l2 = 'stop'; }
+    else if (key === 'conflictos') { l2 = 'conflictos'; }
+    else {
+      l2 = 'confirmados'; showL3 = true;
+      if (key === 'recordatorios')  l3 = 'recordatorios';
+      else if (key === 'resumen')   l3 = 'resumen';
+      else if (key === 'valoracion') l3 = 'valoracion';
+    }
+  }
+
+  var l1El = document.getElementById('navl1-' + l1); if (l1El) l1El.classList.add('active');
+  document.getElementById('nav-l2').style.display = showL2 ? '' : 'none';
+  if (l2) { var l2El = document.getElementById('navl2-' + l2); if (l2El) l2El.classList.add('active'); }
+  document.getElementById('nav-l3').style.display = showL3 ? '' : 'none';
+  if (l3) { var l3El = document.getElementById('navl3-' + l3); if (l3El) l3El.classList.add('active'); }
+
+  S.currentNav = key;
+
+  if (TABLE_FILTERS[key] !== undefined) {
+    setView('lista'); setFilterState(TABLE_FILTERS[key]);
+  } else if (key === 'cal')          { setView('calendar'); }
+  else if (key === 'disp')           { setView('disp'); }
+  else if (key === 'recordatorios')  { setView('recordatorios'); }
+  else if (key === 'resumen')        { setView('confirmados'); }
+  else if (key === 'valoracion')     { setView('valoracion'); }
+  else if (key === 'contactados' || key === 'confirmados') { navGo(key === 'contactados' ? 'enproceso' : 'resumen'); }
+}
+
+function parseFecha(str) {
+  if (!str) return null;
+  const p = str.split('/');
+  if (p.length !== 3) return null;
+  const d = new Date(+p[2], +p[1] - 1, +p[0]);
+  return isNaN(d) ? null : d;
+}
+
+function renderCalendar() {
+  const confirmed = S.rows
+    .filter(r => r.pl6 === 'Sí')
+    .sort((a, b) => {
+      const da = parseFecha(a.llegada) || new Date(9999,0,1);
+      const db = parseFecha(b.llegada) || new Date(9999,0,1);
+      return da - db;
+    });
+
+  if (!confirmed.length) {
+    document.getElementById('cal-view').innerHTML =
+      '<div class="empty-state"><span class="emoji">📅</span>' +
+      '<h3>Sin trueques confirmados</h3>' +
+      '<p>Los artistas confirmados (PL-06 enviado) aparecerán aquí con su evento de Google Calendar.</p></div>';
+    return;
+  }
+
+  // Agrupar por mes
+  const months = {};
+  confirmed.forEach(r => {
+    const d = parseFecha(r.llegada);
+    const key = d ? d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') : 'sin-fecha';
+    const label = d ? d.toLocaleDateString('es-ES', { month: 'long', year: 'numeric' }) : 'Sin fecha';
+    if (!months[key]) months[key] = { label, rows: [] };
+    months[key].rows.push(r);
+  });
+
+  let html = '';
+  Object.keys(months).sort().forEach(key => {
+    const { label, rows } = months[key];
+    html += `<div class="cal-month">
+      <h3 class="cal-month-title">📅 ${label.charAt(0).toUpperCase() + label.slice(1)}</h3>
+      <div class="cal-cards">${rows.map(calCardHTML).join('')}</div>
+    </div>`;
+  });
+
+  document.getElementById('cal-view').innerHTML = html;
+}
+
+function calCardHTML(r) {
+  const gcBadge = r.calendar === 'Evento creado'
+    ? '<span class="badge badge-green" title="Evento en Google Calendar">📅 En GCal</span>'
+    : '<span class="badge badge-gray">Sin evento GCal</span>';
+
+  const fechas = r.llegada + (r.salida ? ' → ' + r.salida : '');
+  const emailBadge = r.email ? `<span title="${esc(r.email)}">✉ ${esc(r.email)}</span>` : '';
+
+  return `<div class="cal-card">
+    <div class="cal-card-top">
+      <div>
+        <div class="cal-card-name">${esc(r.nombre)}</div>
+        <div class="cal-card-act">${esc(r.actividad)}</div>
+      </div>
+      ${gcBadge}
+    </div>
+    <div class="cal-card-meta">
+      <span>⛺ ${esc(r.camping)}</span>
+      <span>🗓 ${esc(fechas)}</span>
+      ${r.localizador ? `<span>🔑 ${esc(r.localizador)}</span>` : ''}
+      ${emailBadge}
+    </div>
+  </div>`;
+}
+
+// ─── DISPONIBILIDAD POR CAMPING ──────────────────────────────
+function renderDisponibilidad() {
+  var container = document.getElementById('disp-view');
+
+  // Inicializar mes si no está establecido (mes actual)
+  if (!S.dispYear) {
+    var now = new Date();
+    S.dispYear  = now.getFullYear();
+    S.dispMonth = now.getMonth();
+  }
+
+  var year  = S.dispYear;
+  var month = S.dispMonth;
+
+  var daysInMonth = new Date(year, month + 1, 0).getDate();
+  var firstDay    = new Date(year, month, 1);
+  var lastDay     = new Date(year, month, daysInMonth);
+
+  var todayNow = new Date();
+  var todayY = todayNow.getFullYear();
+  var todayM = todayNow.getMonth();
+  var todayD = todayNow.getDate();
+
+  var monthLabel = firstDay.toLocaleDateString('es-ES', { month: 'long', year: 'numeric' });
+  monthLabel = monthLabel.charAt(0).toUpperCase() + monthLabel.slice(1);
+
+  var WD = ['Do','Lu','Ma','Mi','Ju','Vi','Sá'];
+
+  function overlaps(r) {
+    var ll = parseFecha(r.llegada);
+    if (!ll) return false;
+    var sa = parseFecha(r.salida) || ll;
+    var llN = new Date(ll.getFullYear(), ll.getMonth(), ll.getDate());
+    var saN = new Date(sa.getFullYear(), sa.getMonth(), sa.getDate());
+    return llN <= lastDay && saN >= firstDay;
+  }
+
+  var monthRows = S.rows.filter(function(r) {
+    return r.camping && r.llegada && r.estado !== 'Cancelado STOP' && overlaps(r);
+  });
+
+  var campings = {};
+  monthRows.forEach(function(r) {
+    if (!campings[r.camping]) campings[r.camping] = [];
+    campings[r.camping].push(r);
+  });
+
+  function buildDayHeader() {
+    var cells = '<div class="disp-cal-name disp-day-hdr"><span>Artista</span></div>';
+    for (var d = 1; d <= daysInMonth; d++) {
+      var wd = new Date(year, month, d).getDay();
+      var isWe = wd === 0 || wd === 6;
+      var isToday = year === todayY && month === todayM && d === todayD;
+      var cls = 'disp-day-cell' + (isWe ? ' is-weekend' : '') + (isToday ? ' is-today-hdr' : '');
+      cells += '<div class="' + cls + '" title="' + WD[wd] + ' ' + d + '">' +
+        '<span>' + d + '</span>' +
+        '<span style="font-size:8px">' + WD[wd] + '</span>' +
+      '</div>';
+    }
+    return '<div class="disp-cal-row">' + cells + '</div>';
+  }
+
+  function buildArtistRow(r) {
+    var ll = parseFecha(r.llegada);
+    if (!ll) return '';
+    var sa = parseFecha(r.salida) || ll;
+    var llN = new Date(ll.getFullYear(), ll.getMonth(), ll.getDate());
+    var saN = new Date(sa.getFullYear(), sa.getMonth(), sa.getDate());
+    var stayColor = esContactado(r) ? 'stay-azul' : 'stay-amarillo';
+    var fechaStr = r.llegada + (r.salida && r.salida !== r.llegada ? ' → ' + r.salida : '');
+    var tooltip = r.nombre + ': ' + fechaStr;
+
+    var cells = '<div class="disp-cal-name" title="' + esc(tooltip) + '">' +
+      '<span>' + esc(r.nombre) + '</span>' +
+      '<small>' + esc(fechaStr) + '</small>' +
+    '</div>';
+
+    for (var d = 1; d <= daysInMonth; d++) {
+      var wd = new Date(year, month, d).getDay();
+      var isWe = wd === 0 || wd === 6;
+      var isToday = year === todayY && month === todayM && d === todayD;
+      var dateN = new Date(year, month, d);
+      var isStay = dateN >= llN && dateN <= saN;
+      var cls = 'disp-stay-cell';
+      if (isStay) cls += ' ' + stayColor;
+      else if (isWe) cls += ' is-weekend';
+      if (isToday) cls += ' is-today-col';
+      cells += '<div class="' + cls + '" title="' + (isStay ? esc(tooltip) : '') + '"></div>';
+    }
+    return '<div class="disp-cal-row">' + cells + '</div>';
+  }
+
+  var html = '<div class="disp-wrap">' +
+    '<div class="disp-month-nav">' +
+      '<button class="disp-month-btn" onclick="dispChangeMonth(-1)">◀</button>' +
+      '<span class="disp-month-label">' + monthLabel + '</span>' +
+      '<button class="disp-month-btn" onclick="dispChangeMonth(1)">▶</button>' +
+    '</div>' +
+    '<div class="disp-legend">' +
+      '<span><span class="disp-leg-dot disp-leg-azul"></span> Contactado (PL-02 enviado)</span>' +
+      '<span><span class="disp-leg-dot disp-leg-amarillo"></span> Pendiente de contactar</span>' +
+    '</div>';
+
+  if (!Object.keys(campings).length) {
+    html += '<div style="text-align:center;padding:48px 24px;color:var(--text2);">No hay propuestas con fechas en ' + monthLabel + '.</div>';
+  } else {
+    Object.keys(campings).sort().forEach(function(campingName) {
+      var campRows = campings[campingName];
+      var count = campRows.length;
+      html += '<div class="disp-section">' +
+        '<div class="disp-section-hdr">🏕️ ' + esc(campingName) +
+          ' <span style="font-weight:400;font-size:11px;color:var(--text2)">(' + count + ' artista' + (count !== 1 ? 's' : '') + ')</span>' +
+        '</div>' +
+        '<div class="disp-cal-wrap">' + buildDayHeader() + campRows.map(buildArtistRow).join('') + '</div>' +
+      '</div>';
+    });
+  }
+
+  html += '</div>';
+  container.innerHTML = html;
+}
+
+function dispChangeMonth(delta) {
+  if (!S.dispYear) { var now = new Date(); S.dispYear = now.getFullYear(); S.dispMonth = now.getMonth(); }
+  S.dispMonth += delta;
+  if (S.dispMonth < 0)  { S.dispMonth = 11; S.dispYear--; }
+  if (S.dispMonth > 11) { S.dispMonth = 0;  S.dispYear++; }
+  renderDisponibilidad();
+}
+
+// ─── RECORDATORIOS SEMANALES ─────────────────────────────────
+function renderRecordatorios() {
+  var container = document.getElementById('reminders-view');
+
+  var today = new Date(); today.setHours(0,0,0,0);
+  var in14  = new Date(today.getTime() + 14 * 86400000);
+
+  // Artistas con PL-05 + PL-06 enviados y evento en Calendar, llegada en próximas 2 semanas
+  var rows = S.rows.filter(function(r) {
+    if (r.pl5 !== 'Sí' || r.pl6 !== 'Sí') return false;
+    if (r.calendar !== 'Evento creado') return false;
+    if (['Cancelado','Cancelado STOP','No acepta','Rechaza'].includes(r.estado)) return false;
+    var ll = parseFecha(r.llegada);
+    return ll && ll >= today && ll <= in14;
+  });
+
+  rows.sort(function(a,b) { return (parseFecha(a.llegada)||0) - (parseFecha(b.llegada)||0); });
+
+  // Agrupar por fecha de llegada
+  var byDate = {};
+  rows.forEach(function(r) {
+    if (!byDate[r.llegada]) byDate[r.llegada] = [];
+    byDate[r.llegada].push(r);
+  });
+
+  var html = '<div class="rem-wrap">';
+
+  if (!rows.length) {
+    html += '<div class="empty-state"><span class="emoji">📬</span>' +
+      '<h3>Sin artistas en las próximas 2 semanas</h3>' +
+      '<p>Aquí aparecerán los artistas con PL-05, PL-06 y Calendar confirmados cuya llegada sea en los próximos 14 días.</p></div>';
+    html += '</div>';
+    container.innerHTML = html;
+    return;
+  }
+
+  html += '<p class="rem-subtitle">Próximas 2 semanas · <strong>' + rows.length + ' artista' + (rows.length !== 1 ? 's' : '') + '</strong> confirmados</p>';
+
+  var WD = ['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
+  Object.keys(byDate).sort().forEach(function(fecha) {
+    var dateRows = byDate[fecha];
+    var d = parseFecha(fecha);
+    var dayLabel = d ? (WD[d.getDay()] + ', ' + d.getDate() + ' de ' + d.toLocaleDateString('es-ES', { month: 'long' }) + ' ' + d.getFullYear()) : fecha;
+    dayLabel = dayLabel.charAt(0).toUpperCase() + dayLabel.slice(1);
+    var isThisWeek = d && d <= new Date(today.getTime() + 7 * 86400000);
+
+    html += '<div class="rem-day-group">' +
+      '<div class="rem-day-hdr">' +
+        '📅 ' + dayLabel +
+        (isThisWeek ? ' <span style="background:var(--accent);color:#fff;font-size:10px;padding:2px 7px;border-radius:99px;font-weight:600">Esta semana</span>' : '') +
+      '</div>';
+
+    dateRows.forEach(function(r) {
+      var pl7done = r.pl7 === 'Sí';
+      var pl8done = r.pl8 === 'Sí';
+      var bothDone = pl7done && pl8done;
+
+      html += '<div class="rem-card' + (bothDone ? ' rem-done' : '') + '">' +
+        '<div class="rem-card-info">' +
+          '<div class="rem-card-name">' + esc(r.nombre) +
+            ' <span class="rem-card-id">' + esc(r.id) + '</span>' +
+          '</div>' +
+          '<div class="rem-card-meta">' +
+            actividadBadge(r.actividad) +
+            (r.personas ? ' · ' + esc(r.personas) + ' pers.' : '') +
+            ' · 🏕️ ' + esc(r.camping) +
+            (r.llegada ? ' · ' + esc(r.llegada) + (r.salida && r.salida !== r.llegada ? ' → ' + esc(r.salida) : '') : '') +
+            (r.localizador ? ' · Loc: ' + esc(r.localizador) : '') +
+          '</div>' +
+        '</div>' +
+        '<div class="rem-card-actions">';
+
+      if (pl7done) {
+        html += '<button class="btn btn-ghost btn-sm" disabled style="opacity:.45;cursor:default">✉ PL-07 enviado</button>';
+      } else {
+        html += '<button class="btn btn-primary btn-sm" onclick="openPreview(\'' + r.id + '\',\'PL-07\')">✉ PL-07 Artista</button>';
+      }
+
+      if (pl8done) {
+        html += '<button class="btn btn-ghost btn-sm" disabled style="opacity:.45;cursor:default">✉ PL-08 enviado</button>';
+      } else {
+        html += '<button class="btn btn-warning btn-sm" onclick="openPreview(\'' + r.id + '\',\'PL-08\')">✉ PL-08 Camping</button>';
+      }
+
+      html += '</div></div>';
+    });
+
+    html += '</div>';
+  });
+
+  html += '</div>';
+  container.innerHTML = html;
+}
+
+// ─── CONFIRMADOS ─────────────────────────────────────────────
+function renderConfirmados() {
+  var container = document.getElementById('confirmados-view');
+  var cancelados = ['Cancelado','Cancelado STOP','No acepta','Rechaza'];
+  var rows = S.rows.filter(function(r) {
+    return r.pl5 === 'Sí' && r.pl6 === 'Sí' && !cancelados.includes(r.estado);
+  }).sort(function(a,b) {
+    var da = parseFecha(a.llegada) || new Date(9999,0,1);
+    var db = parseFecha(b.llegada) || new Date(9999,0,1);
+    return da - db;
+  });
+
+  var byCamping = {};
+  rows.forEach(function(r) {
+    if (!byCamping[r.camping]) byCamping[r.camping] = [];
+    byCamping[r.camping].push(r);
+  });
+
+  var html = '<div class="conf-wrap">';
+
+  if (!rows.length) {
+    html += '<div class="empty-state"><span class="emoji">✅</span><h3>Sin trueques confirmados aún</h3>' +
+      '<p>Aparecerán aquí cuando se hayan enviado PL-05 y PL-06.</p></div></div>';
+    container.innerHTML = html;
+    return;
+  }
+
+  html += '<div class="conf-header">' +
+    '<div class="conf-total-num">' + rows.length + '</div>' +
+    '<div class="conf-total-lbl">trueque' + (rows.length !== 1 ? 's' : '') + ' confirmado' + (rows.length !== 1 ? 's' : '') + '<br><span style="font-size:11px">PL-05 + PL-06 enviados</span></div>' +
+  '</div>';
+
+  // Cards por camping
+  html += '<div class="conf-grid">';
+  Object.keys(byCamping).sort(function(a,b){ return byCamping[b].length - byCamping[a].length; }).forEach(function(camp) {
+    var campRows = byCamping[camp];
+    html += '<div class="conf-card">' +
+      '<div class="conf-card-count">' + campRows.length + '</div>' +
+      '<div class="conf-card-name">🏕️ ' + esc(camp) + '</div>' +
+      '<div class="conf-card-artists">' + campRows.map(function(r){ return '• ' + esc(r.nombre) + (r.actividad ? ' ' + actividadBadge(r.actividad, '10px') : ''); }).join('<br>') + '</div>' +
+    '</div>';
+  });
+  html += '</div>';
+
+  // Lista completa
+  html += '<div class="conf-list-title">Todos los trueques confirmados</div>';
+  rows.forEach(function(r) {
+    var fechas = r.llegada + (r.salida && r.salida !== r.llegada ? ' → ' + r.salida : '');
+    var stars = r.valoracion ? ' ' + starsHTML(r.valoracion) : (r.pl9 === 'Sí' ? ' <span style="font-size:10px;color:#F59E0B">★ PL-09 enviado</span>' : '');
+    html += '<div class="conf-row">' +
+      '<div class="conf-row-name">' + esc(r.nombre) + (r.actividad ? ' ' + actividadBadge(r.actividad, '10px') : '') + stars + '</div>' +
+      '<div class="conf-row-camping">🏕️ ' + esc(r.camping) + '</div>' +
+      '<div class="conf-row-fecha">📅 ' + esc(fechas) + '</div>' +
+      (r.localizador ? '<div style="font-size:11px;color:var(--text2)">🔑 ' + esc(r.localizador) + '</div>' : '') +
+    '</div>';
+  });
+
+  html += '</div>';
+  container.innerHTML = html;
+}
+
+// ─── REALIZADAS ───────────────────────────────────────────────
+function renderRealizadas() {
+  var container = document.getElementById('realizadas-view');
+  var today = new Date(); today.setHours(0,0,0,0);
+
+  var enCurso = [], realizadas = [];
+  S.rows.filter(function(r) {
+    return r.pl6 === 'Sí' && !['Cancelado','Cancelado STOP'].includes(r.estado);
+  }).forEach(function(r) {
+    var ll = parseFecha(r.llegada);
+    var sa = parseFecha(r.salida) || ll;
+    if (!ll) return;
+    var saD = new Date(sa); saD.setHours(23,59,59,999);
+    if (saD < today)      realizadas.push(r);
+    else if (ll <= today) enCurso.push(r);
+  });
+
+  realizadas.sort(function(a,b) { return (parseFecha(b.salida)||0) - (parseFecha(a.salida)||0); });
+
+  var html = '<div class="real-wrap">';
+
+  if (!enCurso.length && !realizadas.length) {
+    html += '<div class="empty-state"><span class="emoji">🎪</span><h3>Sin trueques realizados aún</h3>' +
+      '<p>Aquí aparecerán los trueques en curso y los ya completados (PL-06 enviado).</p></div></div>';
+    container.innerHTML = html;
+    return;
+  }
+
+  function realCardHTML(r, isEnCurso) {
+    var fechas = r.llegada + (r.salida && r.salida !== r.llegada ? ' → ' + r.salida : '');
+    var actionBtn = '';
+    if (!isEnCurso) {
+      if (r.pl9 === 'Sí') {
+        actionBtn = '<button class="btn btn-ghost btn-xs" disabled style="opacity:.45;cursor:default">⭐ PL-09 enviado</button>';
+      } else {
+        actionBtn = '<button class="btn btn-purple btn-xs" onclick="openPreview(\'' + r.id + '\',\'PL-09\')">⭐ PL-09</button>';
+      }
+    }
+    var valorBadge = r.valoracion ? '<span style="margin-right:6px">' + starsHTML(r.valoracion) + '</span>' : '';
+    return '<div class="real-card' + (isEnCurso ? ' en-curso' : '') + '">' +
+      '<div class="real-card-info">' +
+        '<div class="real-card-name">' + esc(r.nombre) + (r.actividad ? ' ' + actividadBadge(r.actividad) : '') + '</div>' +
+        '<div class="real-card-meta">🏕️ ' + esc(r.camping) + ' · 📅 ' + esc(fechas) +
+          (r.localizador ? ' · 🔑 ' + esc(r.localizador) : '') + '</div>' +
+      '</div>' +
+      '<div class="real-card-actions">' + valorBadge + actionBtn + '</div>' +
+    '</div>';
+  }
+
+  if (enCurso.length) {
+    html += '<div class="real-section-title" style="color:var(--green)">🟢 En curso ahora (' + enCurso.length + ')</div>';
+    html += enCurso.map(function(r){ return realCardHTML(r, true); }).join('');
+    html += '<div style="margin-bottom:28px"></div>';
+  }
+
+  if (realizadas.length) {
+    html += '<div class="real-section-title">🎪 Completadas (' + realizadas.length + ')</div>';
+    html += realizadas.map(function(r){ return realCardHTML(r, false); }).join('');
+  }
+
+  html += '</div>';
+  container.innerHTML = html;
+}
+
+// ─── INIT ────────────────────────────────────────────────────
+// ─── AYUDA ───────────────────────────────────────────────────
+var HELP_TEXTS = {
+  'total': {
+    title: '📊 Total BDD',
+    body: 'Todos los artistas en BDD_Trueque sin filtrar. Recoge: Nombre, Email, Teléfono, Actividad, Camping, Llegada, Salida, Localizador y Estado del proceso.'
+  },
+  'sincontactar': {
+    title: '✉ Sin contactar',
+    body: 'Artistas con Estado email = "Pendiente" y columna PL2 vacía. Aún no han recibido el correo de primer contacto. Pulsa PL-02 en su fila para crear el borrador de presentación.'
+  },
+  'contactados': {
+    title: '📬 Contactados',
+    body: 'Todos los artistas que han recibido al menos el PL-02. Agrupa En proceso, Confirmados, Rechazan, Cancelados, STOP y Conflictos.'
+  },
+  'cal': {
+    title: '📅 Calendario',
+    body: 'Vista mensual de todos los trueques confirmados (PL6 = Sí). Muestra artista, camping, actividad y fechas. Permite ver la agenda de un vistazo.'
+  },
+  'disp': {
+    title: '🏕️ Disponibilidad',
+    body: 'Gráfico tipo Gantt de las estancias por mes (barras llegada → salida). Útil para detectar huecos y solapamientos en los campings.'
+  },
+  'enproceso': {
+    title: '✅ En proceso',
+    body: 'Artistas que aceptaron el trueque mediante el formulario (Formulario = Acepta, Estado = En proceso). Pendientes de PL-05 (condiciones) y PL-06 (confirmación + evento). Columnas PL5 y PL6 en BDD_Trueque.'
+  },
+  'confirmados': {
+    title: '⭐ Confirmados',
+    body: 'Artistas con PL-06 enviado. Agrupa tres etapas: Resumen (vista por camping), Recordatorios (avisos antes de la llegada) y Valoración (encuesta post-estancia). Columna PL6 en BDD_Trueque.'
+  },
+  'rechazan': {
+    title: '🚫 Rechazan trueque',
+    body: 'Artistas que respondieron "No" al PL-02 (Formulario = Rechaza o Estado = No acepta). Ya no están activos en el flujo. Columna Formulario en BDD_Trueque.'
+  },
+  'cancelados': {
+    title: '❌ Cancelados',
+    body: 'Artistas con Estado = "Cancelado". El trueque fue anulado tras el contacto. Pueden ser contactados de nuevo en otra temporada. Columna Estado en BDD_Trueque.'
+  },
+  'stop': {
+    title: '⏸ STOP',
+    body: 'Artistas con Estado = "Cancelado STOP". Cancelación permanente; no contactar en el futuro. Columna Estado en BDD_Trueque.'
+  },
+  'conflictos': {
+    title: '⚠ Conflictos',
+    body: 'Artistas activos que comparten camping y fecha de llegada con otro artista activo. Posible solapamiento a resolver manualmente. Se calcula cruzando campings y fechas entre todos los activos.'
+  },
+  'resumen': {
+    title: '✅ Resumen confirmados',
+    body: 'Panel visual que agrupa los confirmados (PL6 enviado, no cancelados) por camping. Muestra nombre, actividad y fechas de cada artista. Fuente: BDD_Trueque columna PL6.'
+  },
+  'recordatorios': {
+    title: '📬 Recordatorios',
+    body: 'Artistas con llegada en los próximos 14 días sin recordatorios enviados. PL-07 va al artista (últimas instrucciones), PL-08 va al email del camping (aviso de llegada). Columnas PL7 y PL8 en BDD_Trueque.'
+  },
+  'valoracion': {
+    title: '⭐ Valoración',
+    body: '"Valórame": artistas con estancia completada para enviar PL-09 (correo con botones de estrellas 1-5). "Total valoración": estadísticas globales, media por camping y por actividad. Columnas PL9 y Valoracion en BDD_Trueque.'
+  }
+};
+
+function showHelp(key, e) {
+  e.stopPropagation();
+  var h = HELP_TEXTS[key];
+  if (!h) return;
+  document.getElementById('help-title').textContent = h.title;
+  document.getElementById('help-body').textContent = h.body;
+  var popup = document.getElementById('help-popup');
+  popup.style.display = '';
+  var x = Math.min(e.clientX + 10, window.innerWidth - 330);
+  var y = Math.min(e.clientY + 10, window.innerHeight - 180);
+  popup.style.left = x + 'px';
+  popup.style.top = y + 'px';
+}
+
+function closeHelp() {
+  document.getElementById('help-popup').style.display = 'none';
+}
+
+document.addEventListener('click', function(e) {
+  var popup = document.getElementById('help-popup');
+  if (popup && popup.style.display !== 'none' && !popup.contains(e.target)) closeHelp();
+});
+
+// ─── VALORACIÓN TABS ──────────────────────────────────────────
+function setValTab(tab) {
+  S.valoracionTab = tab;
+  ['valorame','total'].forEach(function(t) {
+    var btn = document.getElementById('valtab-' + t);
+    if (btn) btn.classList.toggle('active', t === tab);
+  });
+  document.getElementById('realizadas-view').style.display = tab === 'valorame' ? '' : 'none';
+  document.getElementById('total-valoracion-view').style.display = tab === 'total' ? '' : 'none';
+  if (tab === 'valorame') renderRealizadas();
+  else renderTotalValoracion();
+}
+
+function renderTotalValoracion() {
+  var container = document.getElementById('total-valoracion-view');
+  var rated = S.rows.filter(function(r) { return r.valoracion && parseInt(r.valoracion) > 0; });
+
+  if (!rated.length) {
+    container.innerHTML = '<div class="real-wrap"><div class="empty-state"><span class="emoji">⭐</span>' +
+      '<h3>Sin valoraciones aún</h3>' +
+      '<p>Aquí aparecerán las estadísticas cuando los artistas respondan al correo PL-09.</p></div></div>';
+    return;
+  }
+
+  var total = rated.length;
+  var sum = rated.reduce(function(a, r) { return a + parseInt(r.valoracion); }, 0);
+  var avg = (sum / total).toFixed(1);
+
+  var byCamping = {};
+  rated.forEach(function(r) {
+    var c = r.camping || 'Sin camping';
+    if (!byCamping[c]) byCamping[c] = { sum: 0, count: 0 };
+    byCamping[c].sum += parseInt(r.valoracion);
+    byCamping[c].count++;
+  });
+
+  var byActividad = {};
+  rated.forEach(function(r) {
+    var a = r.actividad || 'Sin actividad';
+    if (!byActividad[a]) byActividad[a] = { sum: 0, count: 0 };
+    byActividad[a].sum += parseInt(r.valoracion);
+    byActividad[a].count++;
+  });
+
+  var html = '<div class="val-stats-wrap">';
+
+  html += '<div class="val-stat-card val-total-hero">' +
+    '<h4>Resumen global</h4>' +
+    '<div class="hero-n">' + total + '</div>' +
+    '<div style="font-size:14px;color:#92400E;margin:4px 0 10px">valoracion' + (total === 1 ? '' : 'es') + ' recibida' + (total === 1 ? '' : 's') + '</div>' +
+    '<div class="hero-avg">' + starsHTML(Math.round(parseFloat(avg))) + ' <span style="font-size:17px;font-weight:600">(' + avg + ' / 5)</span></div>' +
+    '</div>';
+
+  html += '<div class="val-stat-card"><h4>🏕️ Por camping</h4>';
+  Object.keys(byCamping).sort(function(a, b) {
+    return (byCamping[b].sum / byCamping[b].count) - (byCamping[a].sum / byCamping[a].count);
+  }).forEach(function(c) {
+    var e2 = byCamping[c];
+    var ca = (e2.sum / e2.count).toFixed(1);
+    html += '<div class="val-stat-row"><span>' + esc(c) + ' <span style="font-size:11px;color:var(--text2)">(' + e2.count + ')</span></span>' +
+      '<span class="val-stat-score">' + starsHTML(Math.round(parseFloat(ca))) + ' ' + ca + '</span></div>';
+  });
+  html += '</div>';
+
+  html += '<div class="val-stat-card"><h4>🎨 Por actividad</h4>';
+  Object.keys(byActividad).sort(function(a, b) {
+    return (byActividad[b].sum / byActividad[b].count) - (byActividad[a].sum / byActividad[a].count);
+  }).forEach(function(a) {
+    var e2 = byActividad[a];
+    var aa = (e2.sum / e2.count).toFixed(1);
+    html += '<div class="val-stat-row"><span>' + esc(a) + ' <span style="font-size:11px;color:var(--text2)">(' + e2.count + ')</span></span>' +
+      '<span class="val-stat-score">' + starsHTML(Math.round(parseFloat(aa))) + ' ' + aa + '</span></div>';
+  });
+  html += '</div>';
+
+  html += '</div>';
+  container.innerHTML = html;
+}
+
+// ─── INIT ────────────────────────────────────────────────────
+window.addEventListener('DOMContentLoaded', () => {
+  if (!S.apiUrl) {
+    setTbody('<tr><td colspan="8"><div class="empty-state">' +
+      '<span class="emoji">⚙</span>' +
+      '<h3>Conecta el dashboard</h3>' +
+      '<p style="margin-bottom:16px">Introduce la URL de tu Apps Script Web App para cargar los datos.</p>' +
+      '<button class="btn btn-primary" onclick="showConfigModal()">⚙ Configurar API</button>' +
+      '</div></td></tr>');
+    return;
+  }
+  loadData(false);
+});
+</script>
+
+<!-- HELP POPUP -->
+<div id="help-popup" style="display:none">
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px">
+    <strong id="help-title"></strong>
+    <button style="border:none;background:none;cursor:pointer;font-size:18px;line-height:1;color:var(--text2);padding:0;flex-shrink:0;margin-top:-2px" onclick="closeHelp()">×</button>
+  </div>
+  <p id="help-body"></p>
+</div>
+</body>
+</html>

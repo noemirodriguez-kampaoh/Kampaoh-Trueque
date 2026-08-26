@@ -1,0 +1,256 @@
+{\rtf1\ansi\ansicpg1252\deff0
+{\fonttbl{\f0\fswiss\fcharset0 Calibri;}}
+{\colortbl;\red0\green32\blue96;\red0\green112\blue192;\red245\green158\blue11;\red46\green125\blue50;\red89\green89\blue89;\red255\green255\blue255;\red0\green0\blue0;\red242\green242\blue242;}
+\widowctrl\hyphauto\paperw12240\paperh15840\margl1800\margr1800\margt1800\margb1440
+
+\pard\qc\sb600\sa120\b\f0\fs72\cf1 KAMPAOH TRUEQUE\b0\par
+\pard\qc\sa120\b\f0\fs44\cf2 MANUAL DE USUARIO\b0\par
+\pard\qc\sa120\f0\fs24\cf5 Gu\'eda completa para gestionar el programa de intercambios art\'edsticos\par
+\pard\qc\sa60\f0\fs22\cf5 Versi\'f3n 1.0  \'b7  Kampaoh  \'b7  2026\par
+\page
+
+\pard\sb60\sa60\b\f0\fs38\cf1 1. \'bfQu\'e9 es el programa Trueque?\b0\par
+\pard\sa80\f0\fs22\cf7 El Trueque es el sistema mediante el cual Kampaoh invita a artistas \emdash instructores de yoga, profesores de surf, m\'fasicos, artistas pl\'e1sticos, etc.\emdash a ofrecer sus actividades en los campings a cambio de alojamiento gratuito.\par
+\pard\sa80\f0\fs22\cf7 Como gestor/a del programa, tu misi\'f3n es seleccionar a los mejores artistas, coordinar sus fechas, comunicarte con ellos y garantizar que el camping est\'e9 preparado para recibirles.\par
+\pard\sb60\sa60\b\f0\fs28\cf2 Herramientas que usar\'e1s\b0\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab Google Sheets (BDD_Trueque) \emdash Base de datos con todas las solicitudes\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab Dashboard Kampaoh Trueque \emdash Centro de gesti\'f3n de correos y seguimiento\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab Gmail \emdash Para revisar y enviar los borradores de correo\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab Google Calendar \emdash Para registrar los trueques confirmados\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab portal.kampaoh.com \emdash Para publicar las actividades del artista\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab Google Drive \emdash Para guardar fotos y documentaci\'f3n\par
+\pard\sb60\li300\ri300\sa80\f0\fs22\cf2 {\b NOTA:} Todos los correos del dashboard se generan como BORRADORES en Gmail. Nunca se env\'edan autom\'e1ticamente. Debes revisarlos y enviarlos manualmente desde Gmail.\par
+\page
+
+\pard\sb60\sa60\b\f0\fs38\cf1 2. Google Sheets: Tu base de datos\b0\par
+\pard\sa80\f0\fs22\cf7 El archivo de Google Sheets es el coraz\'f3n del programa. Aqu\'ed vive toda la informaci\'f3n de los artistas, sus solicitudes y el estado de cada trueque.\par
+\pard\sb40\sa60\b\f0\fs28\cf2 \'bfDe d\'f3nde vienen los datos?\b0\par
+\pard\sa80\f0\fs22\cf7 Cuando un artista rellena el formulario en la web de Kampaoh, sus datos llegan autom\'e1ticamente a la hoja BDD_Trueque: nombre, email, tel\'e9fono, actividad, camping y fechas solicitadas.\par
+\pard\sb60\li300\ri300\sa80\f0\fs22\cf3 {\b AVISO:} Tu trabajo NO es introducir datos manualmente. El formulario web lo hace por ti. Tu tarea es revisar, completar lo que falte y actualizar el ESTADO de cada solicitud.\par
+\pard\sb40\sa60\b\f0\fs28\cf2 La hoja BDD_Trueque \emdash columnas principales\b0\par
+
+\trowd\trgaph108\trleft0\clcbpat1\clbrdrt\brdrw15\brdrs\clbrdrl\brdrw15\brdrs\clbrdrb\brdrw15\brdrs\clbrdrr\brdrw15\brdrs\cellx2880\clcbpat1\clbrdrt\brdrw15\brdrs\clbrdrl\brdrw15\brdrs\clbrdrb\brdrw15\brdrs\clbrdrr\brdrw15\brdrs\cellx6336\clcbpat1\clbrdrt\brdrw15\brdrs\clbrdrl\brdrw15\brdrs\clbrdrb\brdrw15\brdrs\clbrdrr\brdrw15\brdrs\cellx8640\pard\intbl\b\cf6\f0\fs20 Columna\b0\cell\pard\intbl\b\cf6\f0\fs20 Qu\'e9 contiene\b0\cell\pard\intbl\b\cf6\f0\fs20 Qui\'e9n lo rellena\b0\cell\row
+\trowd\trgaph108\trleft0\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx2880\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx6336\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx8640\pard\intbl\f0\fs20\cf7 A \emdash ID\cell\pard\intbl\f0\fs20\cf7 N\'famero \'fanico del artista\cell\pard\intbl\f0\fs20\cf7 Autom\'e1tico\cell\row
+\trowd\trgaph108\trleft0\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx2880\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx6336\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx8640\pard\intbl\f0\fs20\cf7 B \emdash Nombre\cell\pard\intbl\f0\fs20\cf7 Nombre completo del artista\cell\pard\intbl\f0\fs20\cf7 Formulario web\cell\row
+\trowd\trgaph108\trleft0\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx2880\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx6336\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx8640\pard\intbl\f0\fs20\cf7 C \emdash Email\cell\pard\intbl\f0\fs20\cf7 Correo electr\'f3nico del artista\cell\pard\intbl\f0\fs20\cf7 Formulario web\cell\row
+\trowd\trgaph108\trleft0\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx2880\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx6336\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx8640\pard\intbl\f0\fs20\cf7 D \emdash Tel\'e9fono\cell\pard\intbl\f0\fs20\cf7 Tel\'e9fono de contacto\cell\pard\intbl\f0\fs20\cf7 Formulario web\cell\row
+\trowd\trgaph108\trleft0\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx2880\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx6336\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx8640\pard\intbl\f0\fs20\cf7 E \emdash Actividad\cell\pard\intbl\f0\fs20\cf7 Tipo de actividad (yoga, surf...)\cell\pard\intbl\f0\fs20\cf7 Formulario web\cell\row
+\trowd\trgaph108\trleft0\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx2880\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx6336\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx8640\pard\intbl\f0\fs20\cf7 F \emdash Camping\cell\pard\intbl\f0\fs20\cf7 Camping solicitado o asignado\cell\pard\intbl\f0\fs20\cf7 Formulario / T\'fa\cell\row
+\trowd\trgaph108\trleft0\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx2880\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx6336\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx8640\pard\intbl\f0\fs20\cf7 G/H \emdash Llegada / Salida\cell\pard\intbl\f0\fs20\cf7 Fechas de estancia en el camping\cell\pard\intbl\f0\fs20\cf7 Formulario / T\'fa\cell\row
+\trowd\trgaph108\trleft0\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx2880\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx6336\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx8640\pard\intbl\f0\fs20\cf7 I \emdash Localizador\cell\pard\intbl\f0\fs20\cf7 C\'f3digo de reserva en el sistema\cell\pard\intbl\f0\fs20\cf7 T\'fa (tras crear la reserva)\cell\row
+\trowd\trgaph108\trleft0\clcbpat1\clbrdrt\brdrw15\brdrs\clbrdrl\brdrw15\brdrs\clbrdrb\brdrw15\brdrs\clbrdrr\brdrw15\brdrs\cellx2880\clcbpat1\clbrdrt\brdrw15\brdrs\clbrdrl\brdrw15\brdrs\clbrdrb\brdrw15\brdrs\clbrdrr\brdrw15\brdrs\cellx6336\clcbpat1\clbrdrt\brdrw15\brdrs\clbrdrl\brdrw15\brdrs\clbrdrb\brdrw15\brdrs\clbrdrr\brdrw15\brdrs\cellx8640\pard\intbl\b\cf6\f0\fs20 Q \emdash ESTADO \star\b0\cell\pard\intbl\b\cf6\f0\fs20 Estado del proceso del trueque\b0\cell\pard\intbl\b\cf6\f0\fs20 TU \emdash LO MAS IMPORTANTE\b0\cell\row
+\trowd\trgaph108\trleft0\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx2880\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx6336\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx8640\pard\intbl\f0\fs20\cf7 R \emdash Estado email\cell\pard\intbl\f0\fs20\cf7 Si est\'e1 pendiente / contactado / completado\cell\pard\intbl\f0\fs20\cf7 Autom\'e1tico (dashboard)\cell\row
+\trowd\trgaph108\trleft0\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx2880\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx6336\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx8640\pard\intbl\f0\fs20\cf7 PL2, PL5, PL6...\cell\pard\intbl\f0\fs20\cf7 Qu\'e9 correos se han enviado (S\'ed/No)\cell\pard\intbl\f0\fs20\cf7 Autom\'e1tico (dashboard)\cell\row
+\trowd\trgaph108\trleft0\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx2880\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx6336\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx8640\pard\intbl\f0\fs20\cf7 Formulario\cell\pard\intbl\f0\fs20\cf7 Si el artista acepta o rechaza\cell\pard\intbl\f0\fs20\cf7 El artista / T\'fa\cell\row
+\trowd\trgaph108\trleft0\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx2880\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx6336\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx8640\pard\intbl\f0\fs20\cf7 Valoracion\cell\pard\intbl\f0\fs20\cf7 Puntuaci\'f3n 1-5 del artista\cell\pard\intbl\f0\fs20\cf7 Autom\'e1tico (respuesta PL-09)\cell\row
+\pard\sa80\f0\fs22\cf7
+
+\pard\sb60\li300\ri300\sa80\f0\fs22\cf3 {\b AVISO:} La columna Q (Estado) es la que TU debes actualizar. Sin ella, el dashboard no puede filtrar ni clasificar a los artistas correctamente.\par
+\pard\sb40\sa40\b\f0\fs24\cf7 Valores v\'e1lidos para la columna Q:\b0\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab {\b En proceso} \emdash Decides iniciar el trueque con este artista\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab {\b No acepta} \emdash Descartas al artista o \'e9l rechaza la oferta\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab {\b Cancelado} \emdash El trueque se cancela despu\'e9s de haberse iniciado\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab {\b Cancelado STOP} \emdash Cancelaci\'f3n permanente. No volver a contactar nunca\par
+\pard\sb40\sa40\b\f0\fs24\cf7 \'bfQu\'e9 debes completar manualmente?\b0\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab {\b Camping asignado} \emdash si el artista no especific\'f3 uno o cambias la asignaci\'f3n\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab {\b Fechas exactas} \emdash si se negocian fechas distintas a las solicitadas\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab {\b Localizador} \emdash lo a\'f1ades t\'fa cuando creas la reserva en el sistema\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab {\b Columna Formulario} \emdash marcas Acepta o Rechaza si el artista responde por email\par
+\page
+
+\pard\sb60\sa60\b\f0\fs38\cf1 3. El Dashboard: Tu centro de control\b0\par
+\pard\sa80\f0\fs22\cf7 El dashboard es la herramienta web donde gestionas los correos y el seguimiento de todos los artistas. Se abre en el navegador (archivo index.html o enlace GitHub Pages).\par
+\pard\sb40\sa60\b\f0\fs28\cf2 Navegaci\'f3n del Dashboard\b0\par
+\pard\sb20\sa20\b\f0\fs24\cf7 Barra superior \emdash Nivel 1 (azul oscuro)\b0\par
+
+\trowd\trgaph108\trleft0\clcbpat1\clbrdrt\brdrw15\brdrs\clbrdrl\brdrw15\brdrs\clbrdrb\brdrw15\brdrs\clbrdrr\brdrw15\brdrs\cellx2592\clcbpat1\clbrdrt\brdrw15\brdrs\clbrdrl\brdrw15\brdrs\clbrdrb\brdrw15\brdrs\clbrdrr\brdrw15\brdrs\cellx8640\pard\intbl\b\cf6\f0\fs20 Bot\'f3n\b0\cell\pard\intbl\b\cf6\f0\fs20 Para qu\'e9 sirve\b0\cell\row
+\trowd\trgaph108\trleft0\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx2592\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx8640\pard\intbl\f0\fs20\cf7 Total\cell\pard\intbl\f0\fs20\cf7 Ver todos los artistas sin filtrar\cell\row
+\trowd\trgaph108\trleft0\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx2592\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx8640\pard\intbl\f0\fs20\cf7 Sin contactar\cell\pard\intbl\f0\fs20\cf7 Artistas pendientes del primer correo (PL-02)\cell\row
+\trowd\trgaph108\trleft0\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx2592\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx8640\pard\intbl\f0\fs20\cf7 Contactados\cell\pard\intbl\f0\fs20\cf7 Artistas con los que ya has iniciado comunicaci\'f3n\cell\row
+\trowd\trgaph108\trleft0\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx2592\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx8640\pard\intbl\f0\fs20\cf7 Calendario\cell\pard\intbl\f0\fs20\cf7 Vista mensual de todos los trueques confirmados\cell\row
+\trowd\trgaph108\trleft0\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx2592\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx8640\pard\intbl\f0\fs20\cf7 Disponibilidad\cell\pard\intbl\f0\fs20\cf7 Gr\'e1fico tipo Gantt: qu\'e9 artista est\'e1 en qu\'e9 camping y cu\'e1ndo\cell\row
+\pard\sb20\sa20\b\f0\fs24\cf7 Dentro de Contactados \emdash Nivel 2 (barra azul)\b0\par
+\trowd\trgaph108\trleft0\clcbpat1\clbrdrt\brdrw15\brdrs\clbrdrl\brdrw15\brdrs\clbrdrb\brdrw15\brdrs\clbrdrr\brdrw15\brdrs\cellx2592\clcbpat1\clbrdrt\brdrw15\brdrs\clbrdrl\brdrw15\brdrs\clbrdrb\brdrw15\brdrs\clbrdrr\brdrw15\brdrs\cellx8640\pard\intbl\b\cf6\f0\fs20 Submen\'fa\b0\cell\pard\intbl\b\cf6\f0\fs20 Qu\'e9 artistas muestra\b0\cell\row
+\trowd\trgaph108\trleft0\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx2592\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx8640\pard\intbl\f0\fs20\cf7 En proceso\cell\pard\intbl\f0\fs20\cf7 Aceptaron el trueque. Pendientes de PL-05 y PL-06\cell\row
+\trowd\trgaph108\trleft0\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx2592\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx8640\pard\intbl\f0\fs20\cf7 Confirmados\cell\pard\intbl\f0\fs20\cf7 Trueque confirmado al 100% (PL-06 enviado)\cell\row
+\trowd\trgaph108\trleft0\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx2592\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx8640\pard\intbl\f0\fs20\cf7 Rechazan trueque\cell\pard\intbl\f0\fs20\cf7 Dijeron que no al trueque\cell\row
+\trowd\trgaph108\trleft0\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx2592\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx8640\pard\intbl\f0\fs20\cf7 Cancelados\cell\pard\intbl\f0\fs20\cf7 El trueque se anul\'f3 despu\'e9s de iniciarse\cell\row
+\trowd\trgaph108\trleft0\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx2592\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx8640\pard\intbl\f0\fs20\cf7 STOP\cell\pard\intbl\f0\fs20\cf7 Cancelaci\'f3n permanente: no volver a contactar\cell\row
+\trowd\trgaph108\trleft0\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx2592\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx8640\pard\intbl\f0\fs20\cf7 Conflictos\cell\pard\intbl\f0\fs20\cf7 Dos artistas en el mismo camping y fecha: hay que resolver\cell\row
+\pard\sb20\sa20\b\f0\fs24\cf7 Dentro de Confirmados \emdash Nivel 3 (barra verde)\b0\par
+\trowd\trgaph108\trleft0\clcbpat1\clbrdrt\brdrw15\brdrs\clbrdrl\brdrw15\brdrs\clbrdrb\brdrw15\brdrs\clbrdrr\brdrw15\brdrs\cellx2592\clcbpat1\clbrdrt\brdrw15\brdrs\clbrdrl\brdrw15\brdrs\clbrdrb\brdrw15\brdrs\clbrdrr\brdrw15\brdrs\cellx8640\pard\intbl\b\cf6\f0\fs20 Submen\'fa\b0\cell\pard\intbl\b\cf6\f0\fs20 Qu\'e9 muestra\b0\cell\row
+\trowd\trgaph108\trleft0\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx2592\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx8640\pard\intbl\f0\fs20\cf7 Resumen\cell\pard\intbl\f0\fs20\cf7 Artistas confirmados agrupados por camping\cell\row
+\trowd\trgaph108\trleft0\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx2592\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx8640\pard\intbl\f0\fs20\cf7 Recordatorios\cell\pard\intbl\f0\fs20\cf7 Artistas con llegada en los pr\'f3ximos 14 d\'edas\cell\row
+\trowd\trgaph108\trleft0\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx2592\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx8640\pard\intbl\f0\fs20\cf7 Valoraci\'f3n\cell\pard\intbl\f0\fs20\cf7 Gesti\'f3n post-trueque: enviar PL-09 y ver estad\'edsticas\cell\row
+\pard\sb40\sa60\b\f0\fs28\cf2 Los correos del programa (PLs)\b0\par
+
+\trowd\trgaph108\trleft0\clcbpat1\clbrdrt\brdrw15\brdrs\clbrdrl\brdrw15\brdrs\clbrdrb\brdrw15\brdrs\clbrdrr\brdrw15\brdrs\cellx1296\clcbpat1\clbrdrt\brdrw15\brdrs\clbrdrl\brdrw15\brdrs\clbrdrb\brdrw15\brdrs\clbrdrr\brdrw15\brdrs\cellx3456\clcbpat1\clbrdrt\brdrw15\brdrs\clbrdrl\brdrw15\brdrs\clbrdrb\brdrw15\brdrs\clbrdrr\brdrw15\brdrs\cellx6480\clcbpat1\clbrdrt\brdrw15\brdrs\clbrdrl\brdrw15\brdrs\clbrdrb\brdrw15\brdrs\clbrdrr\brdrw15\brdrs\cellx8640\pard\intbl\b\cf6\f0\fs20 C\'f3digo\b0\cell\pard\intbl\b\cf6\f0\fs20 Nombre\b0\cell\pard\intbl\b\cf6\f0\fs20 Cu\'e1ndo se env\'eda\b0\cell\pard\intbl\b\cf6\f0\fs20 A qui\'e9n\b0\cell\row
+\trowd\trgaph108\trleft0\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx1296\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx3456\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx6480\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx8640\pard\intbl\f0\fs20\cf7 PL-02\cell\pard\intbl\f0\fs20\cf7 Primer contacto\cell\pard\intbl\f0\fs20\cf7 Al decidir iniciar el trueque\cell\pard\intbl\f0\fs20\cf7 Al artista\cell\row
+\trowd\trgaph108\trleft0\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx1296\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx3456\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx6480\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx8640\pard\intbl\f0\fs20\cf7 PL-05\cell\pard\intbl\f0\fs20\cf7 Condiciones definitivas\cell\pard\intbl\f0\fs20\cf7 Cuando el artista acepta\cell\pard\intbl\f0\fs20\cf7 Al artista\cell\row
+\trowd\trgaph108\trleft0\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx1296\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx3456\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx6480\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx8640\pard\intbl\f0\fs20\cf7 PL-06\cell\pard\intbl\f0\fs20\cf7 Confirmaci\'f3n final\cell\pard\intbl\f0\fs20\cf7 Tras crear la reserva y asignar fechas\cell\pard\intbl\f0\fs20\cf7 Al artista\cell\row
+\trowd\trgaph108\trleft0\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx1296\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx3456\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx6480\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx8640\pard\intbl\f0\fs20\cf7 PL-07\cell\pard\intbl\f0\fs20\cf7 Recordatorio artista\cell\pard\intbl\f0\fs20\cf7 5-10 d\'edas antes de la llegada\cell\pard\intbl\f0\fs20\cf7 Al artista\cell\row
+\trowd\trgaph108\trleft0\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx1296\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx3456\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx6480\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx8640\pard\intbl\f0\fs20\cf7 PL-08\cell\pard\intbl\f0\fs20\cf7 Aviso al camping\cell\pard\intbl\f0\fs20\cf7 5-10 d\'edas antes de la llegada\cell\pard\intbl\f0\fs20\cf7 Al email del camping\cell\row
+\trowd\trgaph108\trleft0\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx1296\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx3456\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx6480\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx8640\pard\intbl\f0\fs20\cf7 PL-09\cell\pard\intbl\f0\fs20\cf7 Encuesta valoraci\'f3n\cell\pard\intbl\f0\fs20\cf7 Cuando termina la estancia\cell\pard\intbl\f0\fs20\cf7 Al artista\cell\row
+\pard\sb60\li300\ri300\sa80\f0\fs22\cf3 {\b AVISO:} Todos los PLs se crean como BORRADORES en Gmail. Ve siempre a Gmail, abre el borrador, rev\'edsalo y env\'edalo manualmente.\par
+\page
+
+\pard\sb60\sa60\b\f0\fs38\cf1 4. El proceso paso a paso\b0\par
+
+\pard\sb120\sa60\b\f0\fs30\cf2 PASO 1 \emdash Llega una solicitud\b0\par
+\pard\sa80\f0\fs22\cf7 El artista rellena el formulario en la web de Kampaoh. En segundos, sus datos aparecen autom\'e1ticamente en una nueva fila de BDD_Trueque.\par
+\pard\sb20\sa40\b\f0\fs22\cf7 Qu\'e9 ver\'e1s en la fila nueva:\b0\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab Nombre, email, tel\'e9fono y tipo de actividad \emdash del formulario\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab Camping y fechas que solicita \emdash del formulario\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab Columna Q (Estado) \emdash vac\'eda, a la espera de tu decisi\'f3n\par
+\pard\sb60\li300\ri300\sa80\f0\fs22\cf4 {\b CONSEJO:} Revisa las nuevas filas a diario o configura una alerta en Google Sheets para que te notifique por email cuando llegue una solicitud.\par
+
+\pard\sb120\sa60\b\f0\fs30\cf2 PASO 2 \emdash Eval\'faas al artista y decides\b0\par
+\pard\sa80\f0\fs22\cf7 Debes revisar el perfil del artista y decidir si quieres iniciar el trueque.\par
+\pard\sb20\sa40\b\f0\fs22\cf7 Qu\'e9 revisar:\b0\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab Su tipo de actividad \emdash \'bfEncaja con lo que buscamos para ese camping?\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab Sus fechas solicitadas \emdash \'bfEst\'e1n disponibles? (Comprueba en Dashboard \emdash Disponibilidad)\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab El camping solicitado \emdash \'bfEs el m\'e1s adecuado para esa actividad?\par
+\pard\sb20\sa40\b\f0\fs22\cf7 C\'f3mo registrar tu decisi\'f3n en BDD_Trueque:\b0\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab Abre BDD_Trueque y busca la fila del artista\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab En la columna Q (Estado) escribe: {\b "En proceso"} si quieres hacer el trueque, o {\b "No acepta"} si no te interesa\par
+\pard\sb60\li300\ri300\sa80\f0\fs22\cf4 {\b CONSEJO:} Antes de escribir "En proceso", ve al Dashboard \emdash Disponibilidad para confirmar que hay hueco en ese camping para esas fechas.\par
+
+\pard\sb120\sa60\b\f0\fs30\cf2 PASO 3 \emdash Preparas el primer contacto\b0\par
+\pard\sa80\f0\fs22\cf7 Has decidido que quieres hacer el trueque. Ahora aseg\'farate de que todos los datos est\'e1n correctos en BDD_Trueque:\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab Email del artista \emdash \'bfEst\'e1 correctamente escrito?\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab Nombre y actividad \emdash \'bfSin errores?\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab {\b Camping asignado} \emdash \'bfYa has decidido cu\'e1l le corresponde? Escr\'edbelo\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab {\b Fechas (Llegada y Salida)} \emdash \'bfSon las definitivas? Aseg\'farate de tenerlas\par
+\pard\sb60\li300\ri300\sa80\f0\fs22\cf3 {\b AVISO:} Si el email, el camping o las fechas est\'e1n vac\'edos, comp\'e9talos manualmente ANTES de continuar. El correo PL-02 necesita esos datos para generarse correctamente.\par
+
+\pard\sb120\sa60\b\f0\fs30\cf2 PASO 4 \emdash Verificas disponibilidad en el Dashboard\b0\par
+\pard\sa80\f0\fs22\cf7 Antes de enviar cualquier correo, confirma que ese camping est\'e1 libre durante las fechas del artista.\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab Abre el Dashboard y pulsa {\b Disponibilidad} en la barra superior\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab Localiza el camping que le asignar\'edas y comprueba que no hay barras de otro artista en ese per\'edodo\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab Pulsa {\b Calendario} para una vista m\'e1s clara por mes\par
+\pard\sb60\li300\ri300\sa80\f0\fs22\cf4 {\b CONSEJO:} Si detectas un conflicto, ve a Dashboard \emdash Contactados \emdash Conflictos para ver los detalles y resolver cu\'e1l de los dos artistas se queda con esas fechas.\par
+
+\pard\sb120\sa60\b\f0\fs30\cf2 PASO 5 \emdash Env\'edas el primer contacto (PL-02)\b0\par
+\pard\sa80\f0\fs22\cf7 Es el correo de presentaci\'f3n del programa Trueque. Se lo mandas al artista para ofrecerle el intercambio.\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab Pulsa {\b "Sin contactar"} en la barra superior del Dashboard\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab Localiza al artista en la tabla y pulsa el bot\'f3n {\b PL-02} en su fila\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab Se abre una ventana con la previsualizaci\'f3n del correo. Revisa: nombre, camping y fechas\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab Pulsa {\b "Crear borrador"}\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab Ve a {\b Gmail \emdash Borradores}, abre el borrador, l\'e9elo y pulsa {\b Enviar}\par
+\pard\sb60\li300\ri300\sa80\f0\fs22\cf2 {\b NOTA:} Tras crear el borrador, el dashboard actualizar\'e1 el Estado email a "Contactado" autom\'e1ticamente.\par
+
+\pard\sb120\sa60\b\f0\fs30\cf2 PASO 6 \emdash El artista acepta: reserva y confirmaci\'f3n\b0\par
+\pard\sa80\f0\fs22\cf7 \'a1El artista responde que s\'ed! Hay que hacer la reserva y enviarle las confirmaciones.\par
+\pard\sb20\sa40\b\f0\fs22\cf7 6a. Actualizar el estado en Google Sheets:\b0\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab En BDD_Trueque, columna {\b Formulario}: escribe "Acepta"\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab Comprueba que la columna Q (Estado) sigue siendo "En proceso"\par
+\pard\sb20\sa40\b\f0\fs22\cf7 6b. Crear la reserva en el sistema:\b0\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab Accede al sistema de reservas de Kampaoh y crea la reserva con las fechas acordadas\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab Copia el {\b n\'famero de localizador} (ej: COR00529060) y p\'e9galo en la columna Localizador de BDD_Trueque\par
+\pard\sb60\li300\ri300\sa80\f0\fs22\cf3 {\b AVISO:} Sin el localizador, el artista no podr\'e1 entrar al camping. No olvides este paso.\par
+\pard\sb20\sa40\b\f0\fs22\cf7 6c. Enviar las condiciones definitivas (PL-05):\b0\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab Dashboard \emdash Contactados \emdash En proceso, busca al artista\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab Pulsa PL-05, revisa el borrador en Gmail y env\'edalo\par
+\pard\sb20\sa40\b\f0\fs22\cf7 6d. Enviar la confirmaci\'f3n final (PL-06) y crear el evento:\b0\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab Pulsa PL-06 para ese artista en el Dashboard\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab El borrador incluir\'e1 el localizador, fechas y camping \emdash rev\'edsalo en Gmail y env\'edalo\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab Al enviarse, se crea autom\'e1ticamente un evento en {\b Google Calendar}\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab El artista pasar\'e1 al grupo {\b "Confirmados"} en el Dashboard\par
+\pard\sb60\li300\ri300\sa80\f0\fs22\cf4 {\b CONSEJO:} Despu\'e9s del PL-06, ve a Confirmados \emdash Resumen para comprobar que el artista aparece en su camping.\par
+
+\pard\sb120\sa60\b\f0\fs30\cf2 PASO 7 \emdash Recordatorios antes de la llegada\b0\par
+\pard\sa80\f0\fs22\cf7 Unos d\'edas antes de la llegada del artista, env\'eda dos correos: uno al artista y otro al camping. El dashboard te avisa: en {\b Confirmados \emdash Recordatorios} aparecen los artistas con llegada en los pr\'f3ximos 14 d\'edas.\par
+\pard\sb20\sa40\b\f0\fs22\cf7 7a. Recordatorio al artista (PL-07):\b0\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab Pulsa PL-07 para el artista \emdash incluye instrucciones de llegada, localizador y contacto del camping\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab Revisa el borrador en Gmail y env\'edalo al artista\par
+\pard\sb20\sa40\b\f0\fs22\cf7 7b. Aviso al camping (PL-08):\b0\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab Pulsa PL-08 para el mismo artista \emdash este correo va al email del camping\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab Informa al camping de: nombre del artista, actividad que realizar\'e1 y fechas\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab Revisa el borrador en Gmail y env\'edalo al camping\par
+\pard\sb60\li300\ri300\sa80\f0\fs22\cf4 {\b CONSEJO:} Env\'eda los dos correos el mismo d\'eda. As\'ed tanto el artista como el camping tienen la informaci\'f3n a la vez.\par
+
+\pard\sb120\sa60\b\f0\fs30\cf2 PASO 8 \emdash Crear el impacto en el portal\b0\par
+\pard\sa80\f0\fs22\cf7 Antes de que el artista llegue, publ\'edcalo en el portal de Kampaoh para que los campistas sepan qu\'e9 actividades les esperan.\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab Accede a portal.kampaoh.com e inicia sesi\'f3n con tu cuenta\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab Crea una nueva entrada con: nombre del artista, tipo de actividad, camping, fechas y descripci\'f3n breve\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab A\'f1ade foto del artista si dispones de ella\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab Publica la entrada para que sea visible en la app del camping\par
+\pard\sb60\li300\ri300\sa80\f0\fs22\cf4 {\b CONSEJO:} Publica el impacto con al menos 3-4 d\'edas de antelaci\'f3n para que los campistas puedan planificar.\par
+
+\pard\sb120\sa60\b\f0\fs30\cf2 PASO 9 \emdash Tras el trueque: valoraci\'f3n y fotos\b0\par
+\pard\sa80\f0\fs22\cf7 Una vez que el artista completa su estancia, hay dos tareas finales.\par
+\pard\sb20\sa40\b\f0\fs22\cf7 9a. Enviar la encuesta de valoraci\'f3n (PL-09):\b0\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab Dashboard \emdash Confirmados \emdash Valoraci\'f3n \emdash pesta\'f1a "Val\'f3rame"\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab El artista aparecer\'e1 en la secci\'f3n "Completadas" (fecha de salida ya pasada)\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab Pulsa PL-09 \emdash el artista recibir\'e1 un correo con botones de estrellas del 1 al 5\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab Cuando vote, su puntuaci\'f3n aparece autom\'e1ticamente en el dashboard\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab Para ver estad\'edsticas: pesta\'f1a "Total valoraci\'f3n" (media global, por camping y por actividad)\par
+\pard\sb20\sa40\b\f0\fs22\cf7 9b. Guardar las fotos:\b0\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab Abre Google Drive y navega hasta la carpeta {\b FOTOS TRUEQUE}\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab Crea una subcarpeta: [Nombre artista] - [Camping] - [Mes A\'f1o]\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab Ejemplo: Ana Garc\'eda - Camping Almer\'eda - Julio 2026\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 \'95\tab Sube todas las fotos a esa subcarpeta\par
+\pard\sb60\li300\ri300\sa80\f0\fs22\cf4 {\b CONSEJO:} Las fotos son material de marketing muy valioso. Pide siempre que te las manden al terminar la estancia.\par
+\page
+
+\pard\sb60\sa60\b\f0\fs38\cf1 5. Resumen del flujo completo\b0\par
+
+\trowd\trgaph108\trleft0\clcbpat1\clbrdrt\brdrw15\brdrs\clbrdrl\brdrw15\brdrs\clbrdrb\brdrw15\brdrs\clbrdrr\brdrw15\brdrs\cellx864\clcbpat1\clbrdrt\brdrw15\brdrs\clbrdrl\brdrw15\brdrs\clbrdrb\brdrw15\brdrs\clbrdrr\brdrw15\brdrs\cellx3888\clcbpat1\clbrdrt\brdrw15\brdrs\clbrdrl\brdrw15\brdrs\clbrdrb\brdrw15\brdrs\clbrdrr\brdrw15\brdrs\cellx6192\clcbpat1\clbrdrt\brdrw15\brdrs\clbrdrl\brdrw15\brdrs\clbrdrb\brdrw15\brdrs\clbrdrr\brdrw15\brdrs\cellx8640\pard\intbl\b\cf6\f0\fs20 Paso\b0\cell\pard\intbl\b\cf6\f0\fs20 Acci\'f3n\b0\cell\pard\intbl\b\cf6\f0\fs20 Herramienta\b0\cell\pard\intbl\b\cf6\f0\fs20 Resultado\b0\cell\row
+\trowd\trgaph108\trleft0\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx864\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx3888\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx6192\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx8640\pard\intbl\f0\fs19\cf7 1\cell\pard\intbl\f0\fs19\cf7 Llega solicitud del artista\cell\pard\intbl\f0\fs19\cf7 Google Sheets (autom\'e1tico)\cell\pard\intbl\f0\fs19\cf7 Nueva fila en BDD_Trueque\cell\row
+\trowd\trgaph108\trleft0\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx864\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx3888\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx6192\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx8640\pard\intbl\f0\fs19\cf7 2\cell\pard\intbl\f0\fs19\cf7 Eval\'faas y rellenas columna Q\cell\pard\intbl\f0\fs19\cf7 Google Sheets\cell\pard\intbl\f0\fs19\cf7 Estado = "En proceso"\cell\row
+\trowd\trgaph108\trleft0\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx864\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx3888\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx6192\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx8640\pard\intbl\f0\fs19\cf7 3\cell\pard\intbl\f0\fs19\cf7 Completas datos que faltan\cell\pard\intbl\f0\fs19\cf7 Google Sheets\cell\pard\intbl\f0\fs19\cf7 Camping, fechas y email completos\cell\row
+\trowd\trgaph108\trleft0\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx864\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx3888\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx6192\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx8640\pard\intbl\f0\fs19\cf7 4\cell\pard\intbl\f0\fs19\cf7 Verificas disponibilidad\cell\pard\intbl\f0\fs19\cf7 Dashboard \emdash Disponibilidad\cell\pard\intbl\f0\fs19\cf7 Sin conflictos de fecha\cell\row
+\trowd\trgaph108\trleft0\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx864\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx3888\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx6192\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx8640\pard\intbl\f0\fs19\cf7 5\cell\pard\intbl\f0\fs19\cf7 Env\'edas PL-02 (primer contacto)\cell\pard\intbl\f0\fs19\cf7 Dashboard + Gmail\cell\pard\intbl\f0\fs19\cf7 Artista informado del programa\cell\row
+\trowd\trgaph108\trleft0\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx864\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx3888\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx6192\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx8640\pard\intbl\f0\fs19\cf7 6a\cell\pard\intbl\f0\fs19\cf7 Artista acepta: Formulario = Acepta\cell\pard\intbl\f0\fs19\cf7 Google Sheets\cell\pard\intbl\f0\fs19\cf7 Estado actualizado\cell\row
+\trowd\trgaph108\trleft0\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx864\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx3888\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx6192\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx8640\pard\intbl\f0\fs19\cf7 6b\cell\pard\intbl\f0\fs19\cf7 Reserva + localizador en BDD\cell\pard\intbl\f0\fs19\cf7 Sistema reservas + Sheets\cell\pard\intbl\f0\fs19\cf7 Localizador anotado\cell\row
+\trowd\trgaph108\trleft0\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx864\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx3888\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx6192\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx8640\pard\intbl\f0\fs19\cf7 6c\cell\pard\intbl\f0\fs19\cf7 Env\'edas PL-05 (condiciones)\cell\pard\intbl\f0\fs19\cf7 Dashboard + Gmail\cell\pard\intbl\f0\fs19\cf7 Artista conoce las condiciones\cell\row
+\trowd\trgaph108\trleft0\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx864\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx3888\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx6192\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx8640\pard\intbl\f0\fs19\cf7 6d\cell\pard\intbl\f0\fs19\cf7 Env\'edas PL-06 + evento Calendar\cell\pard\intbl\f0\fs19\cf7 Dashboard + Gmail\cell\pard\intbl\f0\fs19\cf7 Evento en Google Calendar creado\cell\row
+\trowd\trgaph108\trleft0\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx864\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx3888\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx6192\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx8640\pard\intbl\f0\fs19\cf7 7a\cell\pard\intbl\f0\fs19\cf7 Env\'edas PL-07 al artista\cell\pard\intbl\f0\fs19\cf7 Dashboard + Gmail\cell\pard\intbl\f0\fs19\cf7 Artista listo para llegar\cell\row
+\trowd\trgaph108\trleft0\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx864\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx3888\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx6192\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx8640\pard\intbl\f0\fs19\cf7 7b\cell\pard\intbl\f0\fs19\cf7 Env\'edas PL-08 al camping\cell\pard\intbl\f0\fs19\cf7 Dashboard + Gmail\cell\pard\intbl\f0\fs19\cf7 Camping preparado para recibirle\cell\row
+\trowd\trgaph108\trleft0\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx864\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx3888\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx6192\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx8640\pard\intbl\f0\fs19\cf7 8\cell\pard\intbl\f0\fs19\cf7 Creas impacto en el portal\cell\pard\intbl\f0\fs19\cf7 portal.kampaoh.com\cell\pard\intbl\f0\fs19\cf7 Actividad visible para campistas\cell\row
+\trowd\trgaph108\trleft0\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx864\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx3888\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx6192\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx8640\pard\intbl\f0\fs19\cf7 9a\cell\pard\intbl\f0\fs19\cf7 Env\'edas PL-09 (valoraci\'f3n)\cell\pard\intbl\f0\fs19\cf7 Dashboard + Gmail\cell\pard\intbl\f0\fs19\cf7 Artista vota su experiencia (1-5)\cell\row
+\trowd\trgaph108\trleft0\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx864\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx3888\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx6192\clcbpat8\clbrdrt\brdrw10\brdrs\clbrdrl\brdrw10\brdrs\clbrdrb\brdrw10\brdrs\clbrdrr\brdrw10\brdrs\cellx8640\pard\intbl\f0\fs19\cf7 9b\cell\pard\intbl\f0\fs19\cf7 Guardas las fotos\cell\pard\intbl\f0\fs19\cf7 Google Drive / FOTOS TRUEQUE\cell\pard\intbl\f0\fs19\cf7 Documentaci\'f3n del trueque\cell\row
+\pard\page
+
+\pard\sb60\sa60\b\f0\fs38\cf1 6. Checklist r\'e1pido por trueque\b0\par
+\pard\sa80\f0\fs22\cf7 Usa esta lista para cada trueque. Marca cada paso cuando lo completes.\par
+\pard\sb60\sa40\b\f0\fs28\cf2 Fase 1 \emdash Evaluaci\'f3n y preparaci\'f3n\b0\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 [ ]\tab Nueva solicitud recibida y revisada en BDD_Trueque\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 [ ]\tab Columna Q (Estado) actualizada: escrito "En proceso"\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 [ ]\tab Email, nombre, actividad, camping y fechas correctos y completos\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 [ ]\tab Disponibilidad verificada en Dashboard \emdash Disponibilidad\par
+\pard\sb60\sa40\b\f0\fs28\cf2 Fase 2 \emdash Primer contacto\b0\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 [ ]\tab PL-02 creado desde el dashboard\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 [ ]\tab Borrador revisado en Gmail\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 [ ]\tab PL-02 enviado al artista\par
+\pard\sb60\sa40\b\f0\fs28\cf2 Fase 3 \emdash Confirmaci\'f3n del trueque\b0\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 [ ]\tab Artista acepta: columna Formulario = "Acepta"\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 [ ]\tab Reserva creada en el sistema\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 [ ]\tab Localizador copiado en BDD_Trueque\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 [ ]\tab PL-05 enviado (condiciones definitivas)\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 [ ]\tab PL-06 enviado y evento creado en Google Calendar\par
+\pard\sb60\sa40\b\f0\fs28\cf2 Fase 4 \emdash Antes de la llegada\b0\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 [ ]\tab PL-07 enviado al artista (instrucciones de llegada)\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 [ ]\tab PL-08 enviado al camping (aviso de llegada)\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 [ ]\tab Impacto publicado en portal.kampaoh.com\par
+\pard\sb60\sa40\b\f0\fs28\cf2 Fase 5 \emdash Tras el trueque\b0\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 [ ]\tab PL-09 enviado al artista (encuesta de valoraci\'f3n)\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 [ ]\tab Fotos guardadas en Google Drive \emdash FOTOS TRUEQUE\par
+\pard\fi-300\li600\sa40\f0\fs22\cf7 [ ]\tab Estado actualizado en BDD_Trueque si hay alg\'fan cambio\par
+\pard\sb60\li300\ri300\sa80\f0\fs22\cf2 {\b NOTA:} Este checklist puede imprimirse para usarse en papel, o duplicarse como plantilla en Google Docs para cada nuevo trueque.\par
+\page
+
+\pard\sb60\sa60\b\f0\fs38\cf1 7. Preguntas frecuentes\b0\par
+\pard\sb60\sa20\b\f0\fs22\cf7 \'bfQu\'e9 hago si el artista no responde al PL-02?\b0\par
+\pard\sa80\f0\fs22\cf7 Espera al menos 5-7 d\'edas laborables. Si no hay respuesta, puedes intentar contactar por tel\'e9fono. Si definitivamente no responde, cambia el Estado (columna Q) a "No acepta".\par
+\pard\sb60\sa20\b\f0\fs22\cf7 \'bfQu\'e9 hago si el artista quiere cambiar las fechas despu\'e9s del PL-06?\b0\par
+\pard\sa80\f0\fs22\cf7 Si es posible modificar la reserva en el sistema, hazlo. Actualiza las fechas en BDD_Trueque y env\'eda un correo manual desde Gmail informando del cambio de fechas.\par
+\pard\sb60\sa20\b\f0\fs22\cf7 \'bfPuedo a\'f1adir artistas manualmente al Google Sheets?\b0\par
+\pard\sa80\f0\fs22\cf7 S\'ed. A\'f1ade una nueva fila con todos los datos necesarios. Aseg\'farate de rellenar el email correctamente, ya que es el campo que usa el dashboard para generar los correos.\par
+\pard\sb60\sa20\b\f0\fs22\cf7 \'bfQu\'e9 pasa si el dashboard muestra "Conflicto" para un artista?\b0\par
+\pard\sa80\f0\fs22\cf7 Significa que hay otro artista confirmado en el mismo camping para las mismas fechas. Ve a Dashboard \emdash Contactados \emdash Conflictos para ver los detalles y decidir cu\'e1l de los dos se queda.\par
+\pard\sb60\sa20\b\f0\fs22\cf7 \'bfPor qu\'e9 no veo la valoraci\'f3n de un artista aunque me dijo que vot\'f3?\b0\par
+\pard\sa80\f0\fs22\cf7 Aseg\'farate de que la API est\'e1 desplegada con la \'faltima versi\'f3n. Si el artista vot\'f3 antes del \'faltimo despliegue, puede que no se guardara. P\'eddele que vote de nuevo abriendo el enlace del correo PL-09.\par
+\pard\sb60\sa20\b\f0\fs22\cf7 \'bfD\'f3nde veo el total de valoraciones y la media?\b0\par
+\pard\sa80\f0\fs22\cf7 En el Dashboard \emdash Confirmados \emdash Valoraci\'f3n \emdash pesta\'f1a "Total valoraci\'f3n". All\'ed ver\'e1s el total de votos, la media global y el desglose por camping y por actividad.\par
+}
