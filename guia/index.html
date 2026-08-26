@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guía Trueque · Kampaoh</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --gold: #F5C800;
+    --bg: #FAFAF8;
+    --surface: #FFFFFF;
+    --border: #E5E5E0;
+    --text: #111827;
+    --text2: #4B5563;
+    --text3: #9CA3AF;
+    --green-bg: #F0FDF4;
+    --green-border: #BBF7D0;
+    --green-text: #15803D;
+    --amber-bg: #FFFBEB;
+    --amber-border: #FDE68A;
+    --amber-text: #92400E;
+    --blue-bg: #EFF6FF;
+    --blue-border: #BFDBFE;
+    --blue-text: #1D4ED8;
+    --step-bg: #111827;
+    --step-color: #F5C800;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #111827;
+      --surface: #1F2937;
+      --border: #374151;
+      --text: #F9FAFB;
+      --text2: #D1D5DB;
+      --text3: #6B7280;
+      --green-bg: #052e16;
+      --green-border: #166534;
+      --green-text: #86EFAC;
+      --amber-bg: #1c1400;
+      --amber-border: #78350F;
+      --amber-text: #FDE68A;
+      --blue-bg: #1e3a5f;
+      --blue-border: #1E40AF;
+      --blue-text: #93C5FD;
+      --step-bg: #F5C800;
+      --step-color: #111827;
+    }
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    font-size: 15px;
+    padding: 0 0 80px;
+  }
+
+  .header {
+    background: #111827;
+    padding: 40px 24px 36px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 120%, rgba(245,200,0,.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(245,200,0,.15);
+    border: 1px solid rgba(245,200,0,.3);
+    color: var(--gold);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 999px;
+    margin-bottom: 16px;
+  }
+  .header h1 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: clamp(24px, 5vw, 36px);
+    font-weight: 800;
+    color: #FFFFFF;
+    line-height: 1.15;
+    text-wrap: balance;
+    margin-bottom: 10px;
+  }
+  .header h1 span { color: var(--gold); }
+  .header p {
+    color: rgba(255,255,255,.55);
+    font-size: 14px;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .section-label {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--text3);
+    margin: 48px 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .step {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px 24px;
+    margin-bottom: 12px;
+    display: grid;
+    grid-template-columns: 36px 1fr;
+    gap: 16px;
+    align-items: start;
+  }
+  .step-num {
+    width: 36px;
+    height: 36px;
+    background: var(--step-bg);
+    color: var(--step-color);
+    border-radius: 50%;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .step-body h3 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--text);
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+  .step-body p {
+    color: var(--text2);
+    font-size: 14px;
+    line-height: 1.65;
+  }
+  .step-body p + p { margin-top: 8px; }
+  .step-body strong { color: var(--text); font-weight: 600; }
+
+  .url-box {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-family: 'Inter', monospace;
+    font-size: 13px;
+    color: var(--blue-text);
+    margin-top: 10px;
+    word-break: break-all;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .url-box::before { content: '🔗'; font-size: 14px; flex-shrink: 0; }
+
+  .callout {
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-top: 12px;
+    font-size: 13.5px;
+    line-height: 1.6;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .callout-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+  .callout-green { background: var(--green-bg); border: 1px solid var(--green-border); color: var(--green-text); }
+  .callout-amber { background: var(--amber-bg); border: 1px solid var(--amber-border); color: var(--amber-text); }
+  .callout-blue  { background: var(--blue-bg);  border: 1px solid var(--blue-border);  color: var(--blue-text);  }
+
+  .substep-list {
+    margin-top: 10px;
+    padding-left: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .substep-list li {
+    font-size: 13.5px;
+    color: var(--text2);
+    padding-left: 20px;
+    position: relative;
+    line-height: 1.55;
+  }
+  .substep-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-weight: 700;
+  }
+  .substep-list li strong { color: var(--text); font-weight: 600; }
+
+  .pl-table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 13.5px; }
+  .pl-table th {
+    background: #111827;
+    color: rgba(255,255,255,.8);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    padding: 10px 12px;
+    text-align: left;
+  }
+  .pl-table th:first-child { border-radius: 8px 0 0 0; }
+  .pl-table th:last-child  { border-radius: 0 8px 0 0; }
+  .pl-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text2);
+    vertical-align: top;
+  }
+  .pl-table tr:last-child td { border-bottom: none; }
+  .pl-table tr:nth-child(even) td { background: var(--bg); }
+  .pl-badge {
+    display: inline-block;
+    background: #111827;
+    color: var(--gold);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 6px;
+  }
+
+  .nav-demo {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 12px;
+    font-size: 13px;
+  }
+  .nav-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-row:last-child { border-bottom: none; }
+  .nav-row-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--text3);
+    display: flex;
+    align-items: center;
+    margin-right: 4px;
+    min-width: 70px;
+  }
+  .nav-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  .nav-l1 { background: #1e293b; color: #e2e8f0; }
+  .nav-l2 { background: #DBEAFE; color: #1D4ED8; }
+  .nav-l3 { background: #D1FAE5; color: #059669; }
+
+  .golden-rule {
+    background: #111827;
+    border-radius: 14px;
+    padding: 24px;
+    text-align: center;
+    margin-top: 48px;
+  }
+  .golden-rule .icon { font-size: 28px; margin-bottom: 10px; }
+  .golden-rule h3 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .golden-rule p { color: rgba(255,255,255,.6); font-size: 14px; line-height: 1.6; max-width: 460px; margin: 0 auto; }
+
+  .footer {
+    text-align: center;
+    margin-top: 40px;
+    color: var(--text3);
+    font-size: 12px;
+  }
+
+  @media (max-width: 480px) {
+    .step { grid-template-columns: 1fr; }
+    .step-num { width: 30px; height: 30px; font-size: 13px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-tag">Kampaoh · Equipo interno</div>
+  <h1>Cómo usar el<br><span>Dashboard Trueque</span></h1>
+  <p>Guía rápida para gestionar artistas, enviar correos y hacer el seguimiento del programa.</p>
+</div>
+
+<div class="container">
+
+  <div class="section-label">Configuración inicial · una sola vez</div>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-body">
+      <h3>Abre el dashboard</h3>
+      <p>Accede desde cualquier navegador con tu cuenta de Google de Kampaoh.</p>
+      <div class="url-box">https://noemirodriguez-kampaoh.github.io/Kampaoh-Trueque/</div>
+      <div class="callout callout-blue" style="margin-top:10px">
+        <span class="callout-icon">ℹ️</span>
+        <span>La primera vez Google te pedirá autorización. Acepta con tu cuenta <strong>@kampaoh.com</strong>.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-body">
+      <h3>Conecta con Google Sheets</h3>
+      <p>Pulsa el icono <strong>⚙ Configurar API</strong> (arriba a la derecha) e introduce la URL del Apps Script que te facilitará Noemi. Pulsa <strong>Guardar y conectar</strong>. Solo hay que hacerlo una vez por dispositivo.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-body">
+      <h3>Añade marketing@kampaoh.com como alias en tu Gmail</h3>
+      <p>Para que los correos a los artistas salgan desde la dirección del equipo y no desde tu correo personal:</p>
+      <ul class="substep-list" style="margin-top:10px">
+        <li>Gmail → <strong>Configuración (⚙) → Ver toda la configuración</strong></li>
+        <li>Pestaña <strong>Cuentas e importación</strong> → sección <em>Enviar correo como</em></li>
+        <li>Clic en <strong>Añadir otra dirección</strong></li>
+        <li>Nombre: <strong>Kampaoh Trueque</strong> · Email: <strong>marketing@kampaoh.com</strong></li>
+        <li>Desactiva "Tratar como alias" → <strong>Siguiente</strong></li>
+        <li>Recibirás un código en el grupo — cópialo y verifícalo</li>
+      </ul>
+      <div class="callout callout-green" style="margin-top:12px">
+        <span class="callout-icon">✅</span>
+        <span>Desde ese momento, todos tus borradores del dashboard aparecerán en Gmail listos para enviarse <strong>como marketing@kampaoh.com</strong>.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">Cómo funciona el dashboard</div>
+
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-body">
+      <h3>Navegación en tres niveles</h3>
+      <p>El dashboard tiene tres barras de navegación apiladas. Cada una filtra más:</p>
+      <div class="nav-demo">
+        <div class="nav-row">
+          <span class="nav-row-label">Nivel 1</span>
+          <span class="nav-chip nav-l1">📋 Total</span>
+          <span class="nav-chip nav-l1">✉️ Sin contactar</span>
+          <span class="nav-chip nav-l1">📬 Contactados</span>
+          <span class="nav-chip nav-l1">📅 Calendario</span>
+          <span class="nav-chip nav-l1">🏕️ Disponibilidad</span>
+        </div>
+        <div class="nav-row">
+          <span class="nav-row-label">Nivel 2</span>
+          <span class="nav-chip nav-l2">✅ En proceso</span>
+          <span class="nav-chip nav-l2">⭐ Confirmados</span>
+          <span class="nav-chip nav-l2">🚫 Rechazan</span>
+          <span class="nav-chip nav-l2">❌ Cancelados</span>
+          <span class="nav-chip nav-l2">⏸ STOP</span>
+          <span class="nav-chip nav-l2">⚠️ Conflictos</span>
+        </div>
+        <div class="nav-row">
+          <span class="nav-row-label">Nivel 3</span>
+          <span class="nav-chip nav-l3">✅ Resumen</span>
+          <span class="nav-chip nav-l3">📬 Recordatorios</span>
+          <span class="nav-chip nav-l3">⭐ Valoración</span>
+        </div>
+      </div>
+      <div class="callout callout-blue" style="margin-top:12px">
+        <span class="callout-icon">💡</span>
+        <span>Cada botón tiene un icono <strong>?</strong> que explica qué muestra esa sección y qué datos recoge del Sheet.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">Enviar un correo (PL)</div>
+
+  <div class="step">
+    <div class="step-num">5</div>
+    <div class="step-body">
+      <h3>Selecciona al artista y crea el borrador</h3>
+      <ul class="substep-list">
+        <li>Localiza al artista en la tabla (usa el buscador o los filtros)</li>
+        <li>Haz clic en su fila para abrirla</li>
+        <li>Pulsa el botón del correo que quieres enviar (<strong>PL-02, PL-05…</strong>)</li>
+        <li>Revisa la previsualización del correo</li>
+        <li>Pulsa <strong>Crear borrador</strong></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">6</div>
+    <div class="step-body">
+      <h3>Envía el borrador desde Gmail</h3>
+      <ul class="substep-list">
+        <li>Ve a <strong>Gmail → Borradores</strong></li>
+        <li>Abre el borrador que se acaba de crear</li>
+        <li>Léelo completo y comprueba que los datos del artista son correctos</li>
+        <li>Pulsa <strong>Enviar</strong></li>
+      </ul>
+      <div class="callout callout-amber">
+        <span class="callout-icon">⚠️</span>
+        <span><strong>Nunca se envía automáticamente.</strong> Siempre debes ir a Gmail y enviar el borrador tú manualmente. Esto es intencional para que puedas revisar antes de enviar.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">Referencia de correos</div>
+
+  <div style="overflow-x:auto; border-radius:10px; border:1px solid var(--border);">
+    <table class="pl-table">
+      <thead>
+        <tr>
+          <th>Código</th>
+          <th>Cuándo se envía</th>
+          <th>A quién</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="pl-badge">PL-02</span></td>
+          <td>Primer contacto con el artista</td>
+          <td>Al artista</td>
+        </tr>
+        <tr>
+          <td><span class="pl-badge">PL-05</span></td>
+          <td>El artista acepta — condiciones definitivas</td>
+          <td>Al artista</td>
+        </tr>
+        <tr>
+          <td><span class="pl-badge">PL-06</span></td>
+          <td>Confirmación final con localizador de reserva</td>
+          <td>Al artista</td>
+        </tr>
+        <tr>
+          <td><span class="pl-badge">PL-07</span></td>
+          <td>Recordatorio 5-10 días antes de la llegada</td>
+          <td>Al artista</td>
+        </tr>
+        <tr>
+          <td><span class="pl-badge">PL-08</span></td>
+          <td>Aviso de llegada del artista</td>
+          <td>Al camping</td>
+        </tr>
+        <tr>
+          <td><span class="pl-badge">PL-09</span></td>
+          <td>Encuesta de valoración tras la estancia</td>
+          <td>Al artista</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="golden-rule">
+    <div class="icon">💛</div>
+    <h3>La regla de oro</h3>
+    <p>El dashboard crea borradores, tú los envías. Antes de pulsar Enviar en Gmail, comprueba siempre el nombre del artista, el camping y las fechas. Si algo no cuadra, corríjelo en Google Sheets y vuelve a crear el borrador.</p>
+  </div>
+
+  <div class="footer">
+    Kampaoh Trueque · Documento interno · 2026
+  </div>
+
+</div>
+</body>
+</html>
